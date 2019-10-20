@@ -15,15 +15,15 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('donor_id');
+            $table->unsignedbigInteger('donor_id');
             $table->dateTime('appointment')->nullable();
             $table->string('purpose');
-            $table->unsignedInteger('center_id');
+            $table->unsignedbigInteger('center_id');
             $table->timestamps();
 
             //foreign key
             $table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('center_id')->references('id')->on('DonationCenter')->onDelete('cascade');
+            $table->foreign('center_id')->references('id')->on('donation_centers')->onDelete('cascade');
         });
     }
 

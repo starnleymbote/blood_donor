@@ -15,10 +15,14 @@ class CreateBloodBanksTable extends Migration
     {
         Schema::create('blood_banks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('center_id');
-            $table->unsignedInteger('blood_type_id');
+            $table->unsignedbigInteger('center_id');
+            $table->unsignedbigInteger('blood_type_id');
             $table->integer('blood_amount');
             $table->timestamps();
+
+            //foreign  key
+            $table->foreign('center_id')->references('id')->on('donation_centers')->onDelete('cascade');
+            $table->foreign('blood_type_id')->references('id')->on('blood_types')->onDelete('cascade');
         });
     }
 
