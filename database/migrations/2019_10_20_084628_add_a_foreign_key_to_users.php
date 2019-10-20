@@ -14,12 +14,12 @@ class AddAForeignKeyToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('donation_center');
-            $table->dropColumn('blood_group');
-            $table->unsignedbigInteger('donation_center_id');
-            $table->unsignedbigInteger('blood_group_id');
-            $table->foreign('donation_center_id')->references('id')->on('donation_centers')->onDelete('cascade');
-            $table->foreign('blood_group_id')->references('id')->on('blood_types')->onDelete('cascade');
+            // $table->dropColumn('donation_center');
+            // $table->dropColumn('blood_group');
+            // $table->unsignedbigInteger('donation_center_id');
+            // $table->unsignedbigInteger('blood_group_id');
+            // $table->foreign('donation_center_id')->references('id')->on('donation_centers')->onDelete('cascade');
+            // $table->foreign('blood_group_id')->references('id')->on('blood_types')->onDelete('cascade');
         });
     }
 

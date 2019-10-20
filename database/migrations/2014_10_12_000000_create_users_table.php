@@ -17,14 +17,9 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('county');
-            $table->string('sub_county');
-            $table->string('phone');
-            $table->string('donation_center');
-            $table->string('gender');
-            $table->string('blood_group');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
