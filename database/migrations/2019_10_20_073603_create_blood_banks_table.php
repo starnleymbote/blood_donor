@@ -15,6 +15,9 @@ class CreateBloodBanksTable extends Migration
     {
         Schema::create('blood_banks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('center_id');
+            $table->unsignedInteger('blood_type_id');
+            $table->integer('blood_amount');
             $table->timestamps();
         });
     }

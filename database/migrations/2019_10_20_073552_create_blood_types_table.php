@@ -15,6 +15,8 @@ class CreateBloodTypesTable extends Migration
     {
         Schema::create('blood_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->unsignedInteger('donor_id');
             $table->timestamps();
         });
     }

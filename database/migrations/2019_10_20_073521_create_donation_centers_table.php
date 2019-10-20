@@ -15,7 +15,14 @@ class CreateDonationCentersTable extends Migration
     {
         Schema::create('donation_centers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('county');
+            $table->string('sub_county');
+            $table->unsignedInteger('donor_id');
             $table->timestamps();
+
+            //foreign key
+            $table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
