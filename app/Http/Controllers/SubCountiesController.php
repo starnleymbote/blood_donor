@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\UserController;
+use App\SubCounties;
 use Illuminate\Http\Request;
 
-class UserControllerController extends Controller
+class SubCountiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserControllerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserController  $userController
+     * @param  \App\SubCounties  $subCounties
      * @return \Illuminate\Http\Response
      */
-    public function show(UserController $userController)
+    public function show(SubCounties $subCounties)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserControllerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserController  $userController
+     * @param  \App\SubCounties  $subCounties
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserController $userController)
+    public function edit(SubCounties $subCounties)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserControllerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserController  $userController
+     * @param  \App\SubCounties  $subCounties
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserController $userController)
+    public function update(Request $request, SubCounties $subCounties)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserControllerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserController  $userController
+     * @param  \App\SubCounties  $subCounties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserController $userController)
+    public function destroy(SubCounties $subCounties)
     {
         //
     }

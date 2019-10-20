@@ -1,4 +1,11 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+	<!-- css files -->
+	<link rel="stylesheet" href="css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> 
+	<link rel="stylesheet" href="css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
 
 @section('content')
 <div class="container">
@@ -15,9 +22,11 @@
                     @endif
 
                     You are logged in!
+                    
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 @endsection

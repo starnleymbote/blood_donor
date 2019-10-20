@@ -17,7 +17,7 @@ class CreateDonorDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedbigInteger('user_id');
             $table->string('county')->nullable();
-            $table->string('sub_county');
+            $table->string('sub_county')->nullable();
             $table->string('phone');
             $table->string('gender');
             $table->unsignedbigInteger('donation_center_id');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDonationCentersTable extends Migration
+class CreateCountiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateDonationCentersTable extends Migration
      */
     public function up()
     {
-        Schema::create('donation_centers', function (Blueprint $table) {
+        Schema::create('counties', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedbigInteger('county');
-            $table->unsignedbigInteger('sub_county');
             $table->timestamps();
-
-            //foreign key
-            // $table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -32,6 +27,6 @@ class CreateDonationCentersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donation_centers');
+        Schema::dropIfExists('counties');
     }
 }

@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
 
-use App\DonorDetails;
-use App\User;
+use App\Counties;
 use Illuminate\Http\Request;
 
-class DonorDetailsController extends Controller
+class CountiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class DonorDetailsController extends Controller
      */
     public function index()
     {
-        $donor_id = Auth::user()->id;
-        $donor_details = User::find($donor_id);
-
-        // return $donor_details;
-        return view('complete_registration')->with('donor_details',$donor_details);
+        //
     }
 
     /**
@@ -47,10 +41,10 @@ class DonorDetailsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\DonorDetails  $donorDetails
+     * @param  \App\Counties  $counties
      * @return \Illuminate\Http\Response
      */
-    public function show(DonorDetails $donorDetails)
+    public function show(Counties $counties)
     {
         //
     }
@@ -58,10 +52,10 @@ class DonorDetailsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DonorDetails  $donorDetails
+     * @param  \App\Counties  $counties
      * @return \Illuminate\Http\Response
      */
-    public function edit(DonorDetails $donorDetails)
+    public function edit(Counties $counties)
     {
         //
     }
@@ -70,10 +64,10 @@ class DonorDetailsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DonorDetails  $donorDetails
+     * @param  \App\Counties  $counties
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DonorDetails $donorDetails)
+    public function update(Request $request, Counties $counties)
     {
         //
     }
@@ -81,10 +75,10 @@ class DonorDetailsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DonorDetails  $donorDetails
+     * @param  \App\Counties  $counties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DonorDetails $donorDetails)
+    public function destroy(Counties $counties)
     {
         //
     }
