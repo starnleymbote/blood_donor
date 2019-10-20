@@ -16,10 +16,10 @@ class CreateBloodTypesTable extends Migration
         Schema::create('blood_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedbigInteger('donor_id');
+            //$table->unsignedbigInteger('donor_id');
             $table->timestamps();
 
-            $table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

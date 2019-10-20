@@ -18,11 +18,11 @@ class CreateDonationCentersTable extends Migration
             $table->string('name');
             $table->string('county');
             $table->string('sub_county');
-            $table->unsignedbigInteger('donor_id');
+            // $table->unsignedbigInteger('donor_id');
             $table->timestamps();
 
             //foreign key
-            $table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('donor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
