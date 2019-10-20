@@ -36,4 +36,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function donation_center()
+    {
+        return $this->hasMany('DonationCenter::class');
+    }
+
+    public function blood_type()
+    {
+            return $this->hasOne('App\BloodType');
+    }
+
+    public function appointment()
+    {
+        return $this->hasMany('App\Appointment');
+    }
 }
