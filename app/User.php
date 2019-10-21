@@ -42,12 +42,12 @@ class User extends Authenticatable
 
     public function donation_center()
     {
-        return $this->hasMany('DonationCenter::class');
+        return $this->hasOne('App\DonationCenter');
     }
 
-    public function blood_type()
+    public function blood_group()
     {
-            return $this->hasOne('App\BloodType');
+        return $this->belongsTo('App\BloodType');
     }
 
     public function appointment()

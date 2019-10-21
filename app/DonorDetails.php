@@ -10,4 +10,14 @@ class DonorDetails extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function Blood_group()
+    {
+        return $this->belongsTo('App\BloodType');
+    }
+
+    public function donation_center()
+    {
+        return $this->belongsTo('App\DonationCenter');
+    }
 }

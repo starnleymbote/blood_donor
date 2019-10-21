@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\DonorDetails;
+use App\DonationCenter;
+use App\BloodType;
+use App\Counties;
+use App\SubCounties;
 
 class UserController extends Controller
 {
@@ -22,7 +27,11 @@ class UserController extends Controller
     public function profile($donor_id)
     {
         
-        return $donor_id;
+        //get user blood_group from blood_type table
+        $donor_center = DonorDetails::with(['donation_center'])->get();
+        $donor_details = User::with(['donor_details.blood_group'])->whereId($donor_id)->get();
+
+        return view('user_profile')->with('donor_details',$donor_details)->with('donor_center',$donor_center);
     }
 
     /**

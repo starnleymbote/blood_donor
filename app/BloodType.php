@@ -15,6 +15,11 @@ class BloodType extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function donor()
+    {
+        return $this->belongsTo('App\DonorDetails');
+    }
+
     public function blood_banks()
     {
         return $this->hasMany('App\BloodBank');
