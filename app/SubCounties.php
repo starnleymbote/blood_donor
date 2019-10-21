@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubCounties extends Model
 {
-    //
+    protected $guarded = [];
+    
+    public function counties()
+    {
+        return $this->belongsTo('App\Counties');
+    }
 }

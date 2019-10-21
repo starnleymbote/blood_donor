@@ -1,108 +1,199 @@
 @extends('layouts.main')
 
-@section('data')
+@section('content')
 
-<div class="container">
+    <form method="POST" action="{{ route('register') }}">
 
-        <div class="row justify-content-center">
-    
-            <div class="col-md-11">
+                    <div class="form-group row">
 
-                <div class="card">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                    <div class="card-header" style="text-align: center"> <b> Complete Registration Here </b></div>
-                    
-            
-                </div>
-    
-            </div> 
-            <br><br><br>
-            {{$donor_details}}
-                
-            
-            <div class="col-lg-10 book-appointment p-sm-5 py-5 px-4">
-                    <h2>Personal Details</h2>
-                    <div class="book-agileinfo-form">
-                        <form action="#" method="post">
-                            <div class="row main-agile-sectns">
+                            <div class="col-md-6">
 
-                                <div class="col-md-6 agileits-btm-spc form-text1">
-                                    <label for="Name :">Name :</label>
-                                    <input type="text" name="Name" placeholder="Full Name" value="{{$donor_details ->name}}">
-                                </div>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                <div class="col-md-6 agileits-btm-spc form-text2">
-                                    <label for="Email">Email :</label>
-                                <input type="text" name="Email" placeholder="Email" value="{{$donor_details ->email}}">
-                                </div>
+                                @error('name')
+
+                                    <span class="invalid-feedback" role="alert">
+
+                                        <strong>{{ $message }}</strong>
+
+                                    </span>
+                                @enderror
                             </div>
-                        </div>
-                        
-                            
-                            <div class="clear"></div>
-                            <h2 class="sub-head-w3ls">More Personal Details</h2>
-                            <div class="row main-agile-sectns">
-
-                                    <div class="col-md-6">
-                                            <div class="agileits-btm-spc">
-                                                <select id="cab" onchange="change_country(this.value)" class="frm-field required sect">
-                                                    <option></option>
-                                                    <option value="">Nairobi</option>
-                                                    <option value="">Thika</option>
-                                                    <option value="">Machakos</option>
-                                                    <option value="">Mombasa</option>
-                                                    <option value="">Migori</option>
-                                                    <option value="">Kisumu</option>
-                                                    <option value="">Eldoret</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                <div class="col-md-6 agileits-btm-spc form-text1">
-                                    <input  style="color:aliceblue" id="datepicker" name="Text" type="text" placeholder="Due till Date" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                        required="">
-                                </div>
-                                <div class="col-md-6 agileits-btm-spc form-text2">
-                                    <input type="text" id="timepicker" name="Time" class="timepicker form-control" placeholder="Time" value="">
-                                </div>
-                            </div>
-                            <div class="row main-agile-sectns">
-                                
-                                <div class="col-md-6">
-                                    <div class="agileits-btm-spc">
-                                        <select id="cab" onchange="change_country(this.value)" class="frm-field required sect">
-                                            <option value="">Blood Type</option>
-                                            <option value="">Nairobi</option>
-                                            <option value="">Thika</option>
-                                            <option value="">Machakos</option>
-                                            <option value="">Mombasa</option>
-                                            <option value="">Migori</option>
-                                            <option value="">Kisumu</option>
-                                            <option value="">Eldoret</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 agileits-btm-spc form-text1">
-                                    <input type="text" name="Hospital" placeholder="Hospital" required="">
-                                </div>
-                            </div>
-    
-                            <div class="main-agile-sectns">
-                                <div class="agileits-btm-spc">
-                                    <input type="text" name="Hospital" placeholder="Details" required="">
-    
-                                </div>
-                                
-                            </div>
-                            <input type="submit" value="Make Request">
-                            <input type="reset" value="Reset">
-                        </form>
                     </div>
-                </div>
-    
-            
-        </div>
+
+                    <div class="form-group row">
+
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+
+                                    <span class="invalid-feedback" role="alert">
+
+                                        <strong>{{ $message }}</strong>
+
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+
+                                    <span class="invalid-feedback" role="alert">
+
+                                        <strong>{{ $message }}</strong>
+
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+
+                                    <span class="invalid-feedback" role="alert">
+
+                                        <strong>{{ $message }}</strong>
+
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+
+                                    <span class="invalid-feedback" role="alert">
+
+                                        <strong>{{ $message }}</strong>
+
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+
+                                    <span class="invalid-feedback" role="alert">
+
+                                        <strong>{{ $message }}</strong>
+
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
+
+
+
+
+
+
         
-</div>
+
+    </form>
     
 @endsection
+{{-- 
+<div class="card">
+        <div class="card-header">{{ __('Register') }}</div>
+
+        <div class="card-body">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <div class="form-group row">
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Register') }}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> --}}

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\DonorDetails;
 use App\User;
+use App\Counties;
+use App\SubCounties;
 use Illuminate\Http\Request;
 
 class DonorDetailsController extends Controller
@@ -16,11 +18,14 @@ class DonorDetailsController extends Controller
      */
     public function index()
     {
+
         $donor_id = Auth::user()->id;
         $donor_details = User::find($donor_id);
+        $counties = Counties::all();
+        $sub_counties = SubCounties::all();
 
         // return $donor_details;
-        return view('complete_registration')->with('donor_details',$donor_details);
+        return view('complete_registration')->with('donor_details',$donor_details)->with('counties',$counties)->with('sub_counties',$sub_counties);
     }
 
     /**
