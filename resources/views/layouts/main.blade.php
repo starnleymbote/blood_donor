@@ -82,13 +82,13 @@
 
                                 <li class="list-group-item">
             
-                                    <a href="">Complete Registration</a>
+                                    <a href="/donor_details">Complete Registration</a>
                     
                                 </li>
                             
                             <li class="list-group-item">
             
-                                <a href="">User Profile</a>
+                            <a href="/user_profile/{{Auth::user()->id}}">User Profile</a>
             
                             </li>
             

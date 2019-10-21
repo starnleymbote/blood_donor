@@ -19,6 +19,12 @@ class UserController extends Controller
         return $user;
     }
 
+    public function profile($donor_id)
+    {
+        
+        return $donor_id;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

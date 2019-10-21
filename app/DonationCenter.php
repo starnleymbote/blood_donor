@@ -10,6 +10,8 @@ class DonationCenter extends Model
         'name',
     ];
 
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo('App\User');
