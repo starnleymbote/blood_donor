@@ -26,6 +26,11 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                    {{ Form::label('name', null, ['class' => 'control-label']) }}
+                                    {{ Form::text('name', '', array_merge(['class' => 'form-control'])) }}
+                                </div>
+
                             <div class="form-group row">
                                     <label for="app_date_label" class="col-md-3 col-form-label text-md-right">{{ __('Appointment Date :') }}</label>
         
