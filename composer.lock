@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "c5316da435f3dfd5c8e9c44bfdc0c0c2",
     "packages": [
         {
@@ -59,6 +60,11 @@
             "time": "2019-09-09T11:29:11+00:00"
         },
         {
+=======
+    "content-hash": "3a81ea5a73ebc29fdd013d76177a616e",
+    "packages": [
+        {
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -433,6 +439,7 @@
             "time": "2019-09-03T16:45:42+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "source": {
@@ -620,6 +627,8 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+=======
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -917,6 +926,7 @@
             "time": "2019-08-07T15:10:45+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravel/ui",
             "version": "v1.1.1",
             "source": {
@@ -1053,6 +1063,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
                 "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+=======
+            "name": "league/flysystem",
+            "version": "1.0.56",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/90e3f83cb10ef6b058d70f95267030e7a6236518",
+                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518",
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
                 "shasum": ""
             },
             "require": {
@@ -1123,7 +1146,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2019-10-16T21:01:05+00:00"
+=======
+            "time": "2019-10-12T13:05:59+00:00"
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
         },
         {
             "name": "monolog/monolog",
@@ -1326,6 +1353,7 @@
         },
         {
             "name": "opis/closure",
+<<<<<<< HEAD
             "version": "3.4.1",
             "source": {
                 "type": "git",
@@ -1336,6 +1364,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/opis/closure/zipball/e79f851749c3caa836d7ccc01ede5828feb762c7",
                 "reference": "e79f851749c3caa836d7ccc01ede5828feb762c7",
+=======
+            "version": "3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opis/closure.git",
+                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opis/closure/zipball/60a97fff133b1669a5b1776aa8ab06db3f3962b7",
+                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7",
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
                 "shasum": ""
             },
             "require": {
@@ -1383,7 +1423,11 @@
                 "serialization",
                 "serialize"
             ],
+<<<<<<< HEAD
             "time": "2019-10-19T18:38:51+00:00"
+=======
+            "time": "2019-09-02T21:07:33+00:00"
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
         },
         {
             "name": "paragonie/random_compat",
@@ -1530,6 +1574,7 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -1580,6 +1625,8 @@
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
+=======
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
             "name": "psr/log",
             "version": "1.1.0",
             "source": {
@@ -1749,6 +1796,7 @@
             "time": "2018-10-13T15:16:03+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -1789,6 +1837,8 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+=======
+>>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
             "name": "ramsey/uuid",
             "version": "3.8.0",
             "source": {
