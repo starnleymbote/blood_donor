@@ -14,7 +14,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -24,7 +24,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('appointment');
     }
 
     /**
@@ -35,7 +35,14 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this ->validate($request, [ 
+            'center' => 'required', 
+            'app_date' => 'required',
+            'purpose' => 'required',
+            
+        ]);
+
+        return $request;
     }
 
     /**

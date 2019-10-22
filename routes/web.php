@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('appointment');
 });
 
 Auth::routes();
@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/allusers', 'UserController@index');
 Route::get('/donor_details','DonorDetailsController@index');
 Route::get('/user_profile/{donor_id}','UserController@profile');
+
+//Appointments Routes
+Route::get('/appointments','AppointmentController@create');
+Route::post('/store','AppointmentController@store');

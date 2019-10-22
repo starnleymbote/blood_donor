@@ -94,7 +94,7 @@
             
                             <li class="list-group-item">
             
-                                <a href="">Make An Appointment</a>
+                                <a href="/appointments">Make An Appointment</a>
             
                             </li>
             
