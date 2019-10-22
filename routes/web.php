@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
     return view('appointment');
 });
 
@@ -28,7 +27,3 @@ Route::get('/user_profile/{donor_id}','UserController@profile');
 //Appointments Routes
 Route::get('/appointments','AppointmentController@create');
 Route::post('/store','AppointmentController@store');
-=======
-    return view('welcome');
-});
->>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc

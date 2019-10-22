@@ -11,6 +11,11 @@ class DonationCenter extends Model
     ];
 
     protected $guarded = [];
+    
+    public function bloodbank()
+    {
+        return $this->belongsTo('App\BloodBank');
+    }
 
     public function user()
     {

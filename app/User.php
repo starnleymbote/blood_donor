@@ -19,12 +19,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-<<<<<<< HEAD
     // protected $guarded = [
     //     'role',
     // ];
-=======
->>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -43,7 +40,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-<<<<<<< HEAD
     public function donation_center()
     {
         return $this->hasOne('App\DonationCenter');
@@ -62,20 +58,5 @@ class User extends Authenticatable
     public function donor_details()
     {
         return $this->hasOne('App\DonorDetails');
-=======
-    public function appointments()
-    {
-        return $this->hasMany('App\User');
-    }
-
-    public function centre()
-    {
-        return $this->hasMany('App\DonationCentre');
-    }
-
-    public function bloodbank()
-    {
-        return $this->hasMany('App\BloodBank');
->>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
     }
 }
