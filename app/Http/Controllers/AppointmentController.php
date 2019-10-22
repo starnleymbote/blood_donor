@@ -14,11 +14,6 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        
-=======
-        //
->>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
     }
 
     /**
@@ -28,11 +23,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('appointment');
-=======
-        //
->>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
+        
     }
 
     /**
@@ -43,7 +35,6 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         $this ->validate($request, [ 
             'center' => 'required', 
             'app_date' => 'required',
@@ -52,9 +43,7 @@ class AppointmentController extends Controller
         ]);
 
         return $request;
-=======
         //
->>>>>>> 326aa9f8760e18fbcca9306bba54138fe8f90acc
     }
 
     /**
