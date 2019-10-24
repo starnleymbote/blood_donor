@@ -9,15 +9,20 @@
                 <div class="card-header" style="text-align: center; background-color: tomato">Complete Registration</div>
 
                 <div class="card-body">
-                        {!! Form::open(['action' => 'Controller@store', 'method' => 'POST']) !!}
+                        {!! Form::open(['action' => 'DonorDetailsController@store', 'method' => 'POST','enctype'=>'multipart/form-data']) !!}
                     {{-- <form method="POST" action="AppointmentController@store"> --}}
+                            
                         @csrf
 
                         <div class="form-group row">
                             <label for="county_label" class="col-md-3 col-form-label text-md-right">{{ __('County :') }}</label>
 
                             <div class="col-md-8">
-                                <input id="county" type="text" class="form-control @error('county') is-invalid @enderror" name="county" value="{{ old('county') }}" required autofocus>
+                                @php
+                                    $group = $blood_group->pluck('name','id')->toArray();
+                                @endphp
+                                {{ Form::select('county', $group, null, ['class'=>"form-control"]) }}
+                                {{-- <input id="county" type="text" class="form-control @error('county') is-invalid @enderror" name="county" value="{{ old('county') }}" required autofocus> --}}
 
                                 @error('county')
                                     <span class="invalid-feedback" role="alert">
@@ -83,6 +88,20 @@
                                 </div>
                         </div>
 
+                        <div class="form-group row">
+                                <label for="blood_group_label" class="col-md-3 col-form-label text-md-right">{{ __('Blood Group :') }}</label>
+    
+                                <div class="col-md-8">
+                                    <input id="blood_group" type="text" class="form-control @error('blood_group') is-invalid @enderror" name="blood_group" value="{{ old('gender') }}" required autofocus>
+    
+                                    @error('blood_group')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                        </div>
+
                         
                         <div class="form-group row">
                                 <label for="User_profile_label" class="col-md-3 col-form-label text-md-right">{{ __('Profile Picture :') }}</label>
@@ -105,15 +124,15 @@
 
                                         <button type="submit" class="btn btn-primary">
 
-                                            {{ __('Book Appointment') }}
+                                            {{ __('Complete Registration') }}
 
                                         </button>
     
                                     </div>
                         </div>
 
-
-                    </form>
+                        {!! Form::close() !!}
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>
