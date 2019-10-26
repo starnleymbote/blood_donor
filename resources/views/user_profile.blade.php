@@ -7,7 +7,9 @@
 
         <div class="col-md-4">
 
-            <img src="/images/0001.png" alt="Image supposed to be here" style="width: 100%; height: 180px">
+                {{-- <img src="{{ asset('public/storage/users_avatar/{!!$profile ->donor_details ->avatar!!} ') }}" alt="Image supposed to be here" style="width: 100%; height: 180px"> --}}
+
+        <img src="/storage/images/{{$profile ->donor_details ->avatar}}" alt="Image supposed to be here" style="width: 100%; height: 180px">
 
         </div>
 
@@ -43,17 +45,28 @@
             </li>
 
             <li class="list-group-item">
-                <b> County : </b> <b style="color: blue"> {{$profile ->donor_details ->county}} </b>
+                @foreach ($county as $name)
+                <b> County : </b> <b style="color: blue"> {{$name->name}} </b>    
+                @endforeach
+                
             </li>
 
             <li class="list-group-item">
-                <b> Sub-County : </b> <b style="color: blue"> {{$profile ->donor_details ->sub_county}} </b>
+                    @foreach ($sub_county as $name)
+                    <b> Sub County : </b> <b style="color: blue"> {{$name->name}} </b>    
+                    @endforeach
+                
             </li>
 
             <li class="list-group-item">
                 @forelse ($donor_center as $center)
-                    <b> Main Donation Center : </b> <b style="color: blue">{{$center ->donation_center ->name}}, {{$profile ->donor_details ->sub_county}}</b>
+                    <b> Main Donation Center : </b> <b style="color: blue">{{$center ->donation_center ->name}},</b>
+
+                    @foreach ($sub_county as $name)
+                        <b style="color: blue"> {{$name->name}} </b>    
+                    @endforeach
                 @empty
+
                     
                 @endforelse
                 

@@ -51,10 +51,6 @@ class DonorDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        $get_id = DonorDetails::select('id')->whereUserId(Auth::user()->id)->get();
-        
-        foreach($get_id as $id)
-        {}
             $details = new DonorDetails;
         
         $this ->validate($request, [
@@ -74,7 +70,7 @@ class DonorDetailsController extends Controller
             $filename = pathinfo($filenamewithExt,PATHINFO_FILENAME);
             $extension = $request->file('profile')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            $path = $request->file('profile')->storeAs('public/users_avatar',$fileNameToStore);
+            $path = $request->file('profile')->storeAs('public/images',$fileNameToStore);
 
         }
         
