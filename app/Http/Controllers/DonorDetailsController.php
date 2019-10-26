@@ -8,6 +8,7 @@ use App\User;
 use App\Counties;
 use App\SubCounties;
 use App\BloodType;
+use App\DonationCenter;
 use Illuminate\Http\Request;
 
 class DonorDetailsController extends Controller
@@ -25,9 +26,11 @@ class DonorDetailsController extends Controller
         $counties = Counties::all();
         $blood_group = BloodType::all();
         $sub_counties = SubCounties::all();
+        $center = DonationCenter::all();
+
 
         // return $donor_details;
-        return view('complete_registration')->with('blood_group',$blood_group)->with('donor_details',$donor_details)->with('counties',$counties)->with('sub_counties',$sub_counties);
+        return view('complete_registration')->with('center',$center)->with('blood_group',$blood_group)->with('donor_details',$donor_details)->with('counties',$counties)->with('sub_counties',$sub_counties);
     }
 
     /**
@@ -48,16 +51,23 @@ class DonorDetailsController extends Controller
      */
     public function store(Request $request)
     {
+        $get_id = DonorDetails::select('id')->whereUserId(Auth::user()->id)->get();
+        
+        foreach($get_id as $id)
+        {}
+            $details = new DonorDetails;
+        
         $this ->validate($request, [
-            'county' => '',
-            'sub_county' => '',
-            'center' => '',
-            'phone' => '',
-            'gender' => '',
-            'profile' => '',
+            'county' => 'required',
+            'sub_county' => 'required',
+            'center' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'blood_group' => 'required',
+            'profile' => 'mimes: jpg,png,jpeg|required',
+            
         ]);
 
-        //return $request;
         if($request ->hasFile('profile'))
         {
             $filenamewithExt = $request->file('profile')->getClientOriginalName();
@@ -73,8 +83,20 @@ class DonorDetailsController extends Controller
             $fileNameToStore="default_user_avatar.png";
         }
         
-        return $request;
-        return $fileNameToStore;
+        $details ->user_id = Auth::user()->id;
+        $details ->county = $request ->input('county');
+        $details ->sub_county = $request ->input('sub_county');
+        $details ->gender = $request ->input('gender');
+        $details ->phone = $request ->input('phone');
+        $details ->donation_center_id = $request ->input('center');
+        $details ->blood_group_id = $request ->input('blood_group');
+        $details ->avatar = $fileNameToStore;
+        $details ->avatar = $fileNameToStore;
+        $details ->donated_blood_amount = 0;
+
+        $details->save();
+
+        return redirect('/');
         
     }
 

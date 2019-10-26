@@ -5,6 +5,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             <div class="card">
                 <div class="card-header" style="text-align: center; background-color: tomato">Complete Registration</div>
 
@@ -19,9 +29,9 @@
 
                             <div class="col-md-8">
                                 @php
-                                    $group = $blood_group->pluck('name','id')->toArray();
+                                    $county = $counties->pluck('name','id')->toArray();
                                 @endphp
-                                {{ Form::select('county', $group, null, ['class'=>"form-control"]) }}
+                                {{ Form::select('county', $county, null, ['class'=>"form-control",'placeholder' => 'select your county']) }}
                                 {{-- <input id="county" type="text" class="form-control @error('county') is-invalid @enderror" name="county" value="{{ old('county') }}" required autofocus> --}}
 
                                 @error('county')
@@ -36,7 +46,11 @@
                                 <label for="sub_county_label" class="col-md-3 col-form-label text-md-right">{{ __('Sub County :') }}</label>
     
                                 <div class="col-md-8">
-                                    <input id="sub_county" type="text" class="form-control @error('sub_county') is-invalid @enderror" name="sub_county" value="{{ old('sub_county') }}" required autocomplete="email" autofocus>
+                                    @php
+                                        $sub = $sub_counties ->pluck('name','id')->toArray();
+                                    @endphp
+                                    {{ Form::select('sub_county', $sub, 'select your sub county', ['class'=>"form-control",'placeholder' => 'select your sub county']) }}
+                                    {{-- <input id="sub_county" type="text" class="form-control @error('sub_county') is-invalid @enderror" name="sub_county" value="{{ old('sub_county') }}" required autocomplete="email" autofocus> --}}
     
                                     @error('sub_county')
                                         <span class="invalid-feedback" role="alert">
@@ -50,7 +64,11 @@
                                 <label for="center_label" class="col-md-3 col-form-label text-md-right">{{ __('Center Name :') }}</label>
     
                                 <div class="col-md-8">
-                                    <input id="center" type="text" class="form-control @error('center') is-invalid @enderror" name="center" value="{{ old('center') }}" required autofocus>
+                                   @php
+                                        $donation_center = $center ->pluck('name','id')->toArray();
+                                    @endphp
+                                    {{ Form::select('center', $donation_center, 'select a center', ['class'=>"form-control",'placeholder' => 'Donation Center']) }}
+                                    {{-- <input id="center" type="text" class="form-control @error('center') is-invalid @enderror" name="center" value="{{ old('center') }}" required autofocus> --}}
     
                                     @error('center')
                                         <span class="invalid-feedback" role="alert">
@@ -78,8 +96,9 @@
                                 <label for="gender_label" class="col-md-3 col-form-label text-md-right">{{ __('Gender :') }}</label>
     
                                 <div class="col-md-8">
-                                    <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autofocus>
-    
+                                    {{-- <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autofocus> --}}
+                                    {{ Form::select('gender', ['male' => 'Male','female' => 'Female'], null, ['class'=>"form-control",'placeholder' => 'Select Gender']) }}
+                                    
                                     @error('gender')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -92,8 +111,12 @@
                                 <label for="blood_group_label" class="col-md-3 col-form-label text-md-right">{{ __('Blood Group :') }}</label>
     
                                 <div class="col-md-8">
-                                    <input id="blood_group" type="text" class="form-control @error('blood_group') is-invalid @enderror" name="blood_group" value="{{ old('gender') }}" required autofocus>
-    
+                                        @php
+                                        $group = $blood_group ->pluck('name','id')->toArray();
+                                    @endphp
+                                    {{ Form::select('blood_group', $group, null, ['class'=>"form-control",'placeholder' => 'Blood Group']) }}
+                                    {{-- <input id="blood_group" type="text" class="form-control @error('blood_group') is-invalid @enderror" name="blood_group" value="{{ old('gender') }}" required autofocus>
+     --}}
                                     @error('blood_group')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
