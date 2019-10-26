@@ -4,21 +4,43 @@
 
 <div class="container">
         <div class="row justify-content-center">
+
             <div class="col-md-10">
+
+                    @if (Session::has('success'))
+                        <div class="alert alert-success" role="alertdialog">
+                            {{Session::get('success')}}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <div class="card">
                     <div class="card-header" style="text-align: center; background-color: tomato">Make An Appointment</div>
     
                     <div class="card-body">
-                        <form method="POST" action="AppointmentController@store">
+                        {!! Form::open(['action' => 'AppointmentController@store','method' => 'POST']) !!}
+                        {{-- <form method="POST" action="AppointmentController@store"> --}}
                             @csrf
     
                             <div class="form-group row">
-                                <label for="center" class="col-md-3 col-form-label text-md-right">{{ __('Center Name :') }}</label>
+                                <label for="center_label" class="col-md-3 col-form-label text-md-right">{{ __('Center Name :') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="center" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    @php
+                                        $donation_center = $centre ->pluck('name','id')->toArray();
+                                    @endphp
+                                    {{ Form::select('center', $donation_center, 'select a center', ['class'=>"form-control",'placeholder' => 'Donation Center']) }}
+                                    {{-- <input id="center" type="email" class="form-control @error('email') is-invalid @enderror" name="center" value="{{ old('email') }}" required autocomplete="email" autofocus> --}}
     
-                                    @error('email')
+                                    @error('center')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -30,7 +52,7 @@
                                     <label for="app_date_label" class="col-md-3 col-form-label text-md-right">{{ __('Appointment Date :') }}</label>
         
                                     <div class="col-md-6">
-                                        <input id="app_date" type="email" class="form-control @error('email') is-invalid @enderror" name="app_date" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        {!! Form::date('app_date', \Carbon\Carbon::now(),['class' => 'form-control'])!!}
         
                                         @error('app_date')
                                             <span class="invalid-feedback" role="alert">
@@ -44,7 +66,7 @@
                                         <label for="purpose_label" class="col-md-3 col-form-label text-md-right">{{ __('purpose :') }}</label>
             
                                         <div class="col-md-6">
-                                            <input id="purpose" type="email" class="form-control @error('email') is-invalid @enderror" name="purpose" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            {!! Form::textarea('purpose', '', ['class' =>'form-control','placeholder' => 'Enter a purpose']) !!}
             
                                             @error('purpose')
                                                 <span class="invalid-feedback" role="alert">
@@ -62,12 +84,11 @@
         
                                         </div>
                                 </div>
-
-    
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 @endsection

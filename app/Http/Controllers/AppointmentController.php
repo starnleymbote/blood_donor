@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Appointment;
+use App\Counties;
+use App\SubCounties;
+use App\DonationCenter;
 use Illuminate\Http\Request;
+use Session;
 
 class AppointmentController extends Controller
 {
@@ -23,7 +28,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view('appointment');
+        $centre = DonationCenter::all();
+        return view('appointment')->with('centre',$centre);
         
     }
 
@@ -36,14 +42,24 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $this ->validate($request, [ 
-            'center' => 'required', 
+            'center' => 'bail|required', 
             'app_date' => 'required',
-            'purpose' => 'required',
+            'purpose' => 'required|max:100',
             
         ]);
 
-        return $request;
-        //
+        $appointment = new Appointment;
+
+        $appointment ->donor_id  = Auth::user()->id;
+        $appointment ->appointment = $request->input('app_date');
+        $appointment ->purpose  = $request->input('purpose');
+        $appointment ->center_id = $request->input('center');
+
+        $appointment ->save();
+
+        Session::flash('success', 'Appointment sent succesfully. Wait for a response via your phone');
+        return redirect()->back();
+        
     }
 
     /**
