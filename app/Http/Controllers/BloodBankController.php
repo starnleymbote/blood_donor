@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BloodBank;
+use App\DonationCenter;
 use Illuminate\Http\Request;
 
 class BloodBankController extends Controller
@@ -15,6 +16,7 @@ class BloodBankController extends Controller
     public function index($center_id)
     {
         // get centers total blood amounts
+        $get_name = DonationCenter::select('name')->whereId($center_id)->get();
         $total_blood_amount = BloodBank::where('center_id',$center_id)->sum('blood_amount');
 
         //get blood amount of the individual blood group
@@ -24,9 +26,9 @@ class BloodBankController extends Controller
         $Bpos = BloodBank::where('center_id',$center_id)->where('blood_type_id',5)->sum('blood_amount');
         $Apos = BloodBank::where('center_id',$center_id)->where('blood_type_id',6)->sum('blood_amount');
         $Bneg = BloodBank::where('center_id',$center_id)->where('blood_type_id',7)->sum('blood_amount');
-        $Opos = BloodBank::where('center_id',$center_id)->where('blood_type_id',8)->sum('blood_amount');
+        $Aneg = BloodBank::where('center_id',$center_id)->where('blood_type_id',8)->sum('blood_amount');
 
-        //return view('')->with('total_blood_amount',$)->with()->with()->with()->with()->with()->with()->with()->with()
+        return view('blood_bank')->with('total_blood_amount',$total_blood_amount)->with('Opos',$Opos)->with('AB',$AB)->with('Oneg',$Oneg)->with('Bpos',$Bpos)->with('Apos',$Apos)->with('Bneg',$Bneg)->with('Opos',$Opos)->with('Aneg',$Aneg)->with('get_name',$get_name);
     }
 
     /**
