@@ -10,6 +10,6 @@ class SubCounties extends Model
     
     public function counties()
     {
-        return $this->belongsTo('App\Counties');
+        return $this->hasOne('App\Counties');
     }
 }

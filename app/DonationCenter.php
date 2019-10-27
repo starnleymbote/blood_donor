@@ -22,11 +22,6 @@ class DonationCenter extends Model
         return $this->hasOne('App\User');
     }
 
-    public function blood_bank()
-    {
-        return $this->belongsTo('App\BloodBank');
-    }
-
     public function appointments()
     {
         return $this->hasMany('App\Appointment');
@@ -35,5 +30,10 @@ class DonationCenter extends Model
     public function donor()
     {
         return $this->hasOne('App\DonorDetails');
+    }
+
+    public function county()
+    {
+        return $this->hasOne('App\Counties');
     }
 }

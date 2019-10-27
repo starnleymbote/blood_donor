@@ -17,4 +17,9 @@ class Counties extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function donation_center()
+    {
+        return $this->hasMany('App\DonationCenter');
+    }
 }

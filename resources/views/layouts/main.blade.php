@@ -74,6 +74,8 @@
 
         <main class="py-4">
 
+        @if (Auth::check() )
+            
             <div class="row justify-content-center">
 
                 <div class="col-md-4" style="padding-left: 5%">
@@ -103,6 +105,43 @@
                                  <a href="">Check Records</a>
             
                             </li>
+
+                            {{-- ADMINS PANEL --}}
+                            <li class="list-group-item">
+            
+                                    <a href="/allusers">List All Donors</a>
+               
+                               </li>
+
+                               <li class="list-group-item">
+            
+                                    <a href="">Check Appointments</a>
+               
+                               </li>
+
+                               <li class="list-group-item">
+            
+                                    <a href="/center_list">List Donation Center</a>
+               
+                               </li>
+
+                               <li class="list-group-item">
+            
+                                    <a href="">Blood Level Per Center</a>
+               
+                               </li>
+
+                               <li class="list-group-item">
+            
+                                    <a href="">Blood Level Per County</a>
+               
+                               </li>
+
+                               <li class="list-group-item">
+            
+                                    <a href="">Add New Admin</a>
+               
+                               </li>
             
                         </ul>
 
@@ -117,6 +156,10 @@
                 
 
             </div>
+
+            @else
+                {{ route('/login', ['']) }}
+        @endif
             
         </main>
     </div>

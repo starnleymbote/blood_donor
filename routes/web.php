@@ -30,3 +30,9 @@ Route::post('/store','AppointmentController@store');
 
 //complete registration routes
 Route::POST('/complete_registration','DonorDetailsController@store');
+
+//centers list
+Route::get('/center_list','DonationCentreController@index')->name('centers');
+
+//bloodbank routes
+Route::get('bank_details/{center_id}','BloodBankController@index');
