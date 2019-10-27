@@ -15,6 +15,7 @@
                         </ul>
                     </div>
                 @endif
+                {{-- card --}}
             <div class="card">
                 <div class="card-header" style="text-align: center; background-color: tomato">Complete Registration</div>
 
