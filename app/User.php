@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function donation_center()
     {
-        return $this->hasOne('App\DonationCenter');
+        return $this->belongsTo('App\DonationCenter');
     }
 
     public function blood_group()
@@ -59,4 +59,10 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\DonorDetails');
     }
+
+    public function county()
+    {
+        return $this->hasOne('App\Counties');
+    }
+
 }

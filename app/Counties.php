@@ -12,4 +12,9 @@ class Counties extends Model
     {
         return $this->belongsTo('App\SubCounties');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

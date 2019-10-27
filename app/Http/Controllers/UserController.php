@@ -19,9 +19,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::with(['donor_details'])->get();
+ 
+        $users = User::with(['donor_details.donation_center','donor_details.blood_group'])->get();
 
-        return $user;
+        return view('allusers')->with('users',$users);
     }
 
     public function profile($donor_id)
