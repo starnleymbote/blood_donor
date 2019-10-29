@@ -116,8 +116,7 @@
                                         $group = $blood_group ->pluck('name','id')->toArray();
                                     @endphp
                                     {{ Form::select('blood_group', $group, null, ['class'=>"form-control",'placeholder' => 'Blood Group']) }}
-                                    {{-- <input id="blood_group" type="text" class="form-control @error('blood_group') is-invalid @enderror" name="blood_group" value="{{ old('gender') }}" required autofocus>
-     --}}
+         
                                     @error('blood_group')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

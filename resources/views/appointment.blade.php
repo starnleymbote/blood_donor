@@ -35,7 +35,7 @@
     
                                 <div class="col-md-6">
                                     @php
-                                        $donation_center = $centre ->pluck('name','id')->toArray();
+                                        $donation_center = $centre->pluck('name','id')->toArray();
                                     @endphp
                                     {{ Form::select('center', $donation_center, 'select a center', ['class'=>"form-control",'placeholder' => 'Donation Center']) }}
                                     {{-- <input id="center" type="email" class="form-control @error('email') is-invalid @enderror" name="center" value="{{ old('email') }}" required autocomplete="email" autofocus> --}}
