@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DonationCenter;
 use App\Counties;
 use App\SubCounties;
+use Session;
 use Illuminate\Http\Request;
 
 class DonationCentreController extends Controller
@@ -26,6 +27,11 @@ class DonationCentreController extends Controller
         return view('list_centers')->with('center',$center);
     }
 
+    public function add_new_center()
+    {
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -33,7 +39,11 @@ class DonationCentreController extends Controller
      */
     public function create()
     {
-        //
+        $counties = Counties::all();
+        $sub_counties = SubCounties::all();
+
+        
+        return view('add_new_center')->with('counties',$counties)->with('sub_counties',$sub_counties);
     }
 
     /**
@@ -44,7 +54,24 @@ class DonationCentreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+        [
+            'center_name' => 'required|alpha',
+            'county' => 'required',
+            'sub_county' => 'required'
+        ]);
+
+        $center = new DonationCenter;
+
+        $center ->name = $request ->input('center_name');
+        $center ->county = $request ->input('county');
+        $center ->sub_county = $request ->input('sub_county');
+
+        $center ->save();
+    
+        Session::flash('success', $center->name.' has been added succesfully');
+
+        return redirect('/newcenter');
     }
 
     /**
