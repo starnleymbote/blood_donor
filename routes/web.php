@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('appointment');
+    return view('index');
 });
 
 Auth::routes();
+Route::group(['prefix' => 'admin'], function () {
+    
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

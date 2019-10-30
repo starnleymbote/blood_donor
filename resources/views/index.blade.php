@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +21,12 @@
 	</script>
 	<!--// Meta tag Keywords -->
 
-	<link rel="stylesheet" href={{ asset('css/owl.carousel.css') }} type="text/css" media="all">
-	<link rel="stylesheet" href={{ asset('css/owl.theme.css') }} type="text/css" media="all">
+	<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
 	<!-- css files -->
-	<link rel="stylesheet" href={{ asset('css/bootstrap.css') }}> <!-- Bootstrap-Core-CSS -->
-	<link rel="stylesheet" href={{ asset('css/style.css') }} type="text/css" media="all" /> <!-- Style-CSS --> 
-	<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}"> <!-- Font-Awesome-Icons-CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> 
+	<link rel="stylesheet" href="css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
 	<!-- //css files -->
 
 	<!-- web-fonts -->
@@ -53,11 +54,12 @@
 			
 			<div class="col-md-4 top-forms mt-md-3 mt-2 mb-md-0 mb-3">
 				<span class="mx-lg-4 mx-md-2  mx-1">
-					<a href="/login">
-						<i style="color:#bb0a1e"></i> Sign In</a>
+					<a href="#" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
+						<i class="fas fa-lock" style="color:#bb0a1e"></i> Sign In</a>
 				</span>
 				<span>
-					<a href="/register"></i> Register</a>
+					<a href="#" data-toggle="modal" data-target="#exampleModal1" >
+						<i class="fas fa-user" style="color:#bb0a1e"></i> Register</a>
 				</span>
 			</div>
 		</div>
@@ -325,7 +327,7 @@
 		<!-- copyright -->
 		<div class="footer-cpy text-center pt-sm-5 mt-sm-5 mt-4 pt-3">
 			<div class="w3layouts-agile-copyrightbottom">
-				<p>© <?php echo date('Y'); ?> Smart Donor. All Rights Reserved | Design by
+				<p>© 2019 Smart Donor. All Rights Reserved | Design by
 					<a href="http://w3layouts.com/">Smart Donor</a>
 				</p>
 
@@ -347,7 +349,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="/login" method="post">
+				<form action="login.php" method="post">
 					<div class="form-group">
 						<label for="recipient-name" class="col-form-label">User Name</label>
 						<input type="text" class="form-control" placeholder="User Name" name="username" id="username" required="">
@@ -499,7 +501,7 @@
 	<!-- //carousel -->
 
 	<!--slider-->
-	<script src="public/responsiveslides.min.js"></script>
+	<script src="js/responsiveslides.min.js"></script>
 	<script>
 		$(function () {
 			// Slideshow 1
@@ -515,9 +517,9 @@
 	<!--//slider-->
 
 	<!-- start-smoth-scrolling -->
-<script src={{ asset("public/SmoothScroll.min.js") }}></script>
-    <script type="text/javascript" src={{ asset("public/move-top.js") }}></script>
-	<script type="text/javascript" src={{ asset("public/easing.js") }}></script>
+	<script src="js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		

@@ -13,7 +13,7 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointment', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedbigInteger('donor_id');
             $table->dateTime('appointment')->nullable();
