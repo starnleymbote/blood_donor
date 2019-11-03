@@ -24,19 +24,19 @@
 
 <div class="col-md-10">
        <div class="card">
-           <div class="card-header" style="background-color: tomato; text-align: center;">{{ __('Add A New Donation Center') }}</div>
+           <div class="card-header" style="background-color: tomato; text-align: center;">{{ __('Add A New County') }}</div>
                 <div class="card-body">
-                    {!! Form::open(['action' => 'DonationCentreController@store', 'method' => 'POST']) !!}
+                    {!! Form::open(['action' => 'CountiesController@store', 'method' => 'POST']) !!}
                     {{-- <form method="POST" action="{{ route('login') }}"> --}}
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Center Name') }}</label>
+                            <label for="county_name" class="col-md-2 col-form-label text-md-right">{{ __('County Name') }}</label>
 
                             <div class="col-md-9">
-                                <input id="center_name" type="text" class="form-control @error('center_name') is-invalid @enderror" name="center_name" value="{{ old('center_name') }}" required autofocus>
+                                <input id="county_name" type="text" class="form-control @error('county_name') is-invalid @enderror" name="county_name" required autofocus>
 
-                                @error('center_name')
+                                @error('county_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -47,7 +47,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Add New Center') }}
+                                    {{ __('New County') }}
                                 </button>
 
                             </div>

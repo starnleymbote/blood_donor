@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Counties;
+use Session;
+
 use Illuminate\Http\Request;
 
 class CountiesController extends Controller
@@ -24,7 +26,7 @@ class CountiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_county');
     }
 
     /**
@@ -35,7 +37,18 @@ class CountiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+        [
+            'county_name' => 'required|min: 4'
+        ]);
+
+        $county = new Counties;
+
+        $county ->name = $request->input('county_name');
+        $county->save();
+
+        Session::flash('success', $county->name.' has been added succesfully');
+        return redirect('/add_county');
     }
 
     /**

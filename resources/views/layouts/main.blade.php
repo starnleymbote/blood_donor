@@ -121,15 +121,28 @@
 
                                <li class="list-group-item">
             
+                                <a href="/newcenter">Add Donation Center</a>
+           
+                              </li>
+
+                               <li class="list-group-item">
+            
                                     <a href="/center_list">List Donation Center</a>
                
                                </li>
 
                                <li class="list-group-item">
             
-                                    <a href="">Blood Level Per Center</a>
+                                    <a href="/add_county">Add a County</a>
                
                                </li>
+
+                               <li class="list-group-item">
+            
+                                <a href="/add_sub_subcounty">Add A Sub County</a>
+           
+                                </li>
+
 
                                <li class="list-group-item">
             

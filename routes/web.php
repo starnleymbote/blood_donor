@@ -42,3 +42,7 @@ Route::post('storecenter', 'DonationCentreController@store');
 
 //bloodbank routes
 Route::get('bank_details/{center_id}','BloodBankController@index');
+
+//add county and sub county
+Route::get('/add_county','CountiesController@create');
+Route::post('/store_county','CountiesController@store');
