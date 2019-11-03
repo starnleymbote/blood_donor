@@ -19,7 +19,7 @@ class DonationCentreController extends Controller
     {
         // retriev center name subcounty and count name
         $center = DonationCenter::join('counties','counties.id', '=', 'donation_centers.county')
-        ->join('sub_counties','sub_counties.id', '=', 'donation_centers.sub_county')
+        ->join('sub_counties','sub_counties.id', '=', 'donation_centers.sub_county_id')
         ->select('donation_centers.id as center_id','donation_centers.name','counties.name as county_name','sub_counties.name as sub_county')
         ->getQuery()
         ->get();
@@ -56,17 +56,18 @@ class DonationCentreController extends Controller
     {
         $this->validate($request,
         [
-            'center_name' => 'required|alpha',
+            'center_name' => 'required|',
             'county' => 'required',
             'sub_county' => 'required'
         ]);
 
+        
         $center = new DonationCenter;
 
         $center ->name = $request ->input('center_name');
         $center ->county = $request ->input('county');
-        $center ->sub_county = $request ->input('sub_county');
-
+        $center ->sub_county_id = $request ->input('sub_county');
+        // return $center;
         $center ->save();
     
         Session::flash('success', $center->name.' has been added succesfully');

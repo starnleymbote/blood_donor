@@ -17,7 +17,7 @@ class CreateDonationCentersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedbigInteger('county');
-            $table->unsignedbigInteger('sub_county');
+            $table->unsignedbigInteger('sub_county_id');
             $table->timestamps();
 
             //foreign key

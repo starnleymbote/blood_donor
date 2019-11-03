@@ -139,7 +139,7 @@
 
                                <li class="list-group-item">
             
-                                <a href="/add_sub_subcounty">Add A Sub County</a>
+                                <a href="/add_sub_county">Add A Sub County</a>
            
                                 </li>
 

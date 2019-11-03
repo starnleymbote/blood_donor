@@ -15,7 +15,7 @@ class AddAForeignKeyToDonationCenters extends Migration
     {
         Schema::table('donation_centers', function (Blueprint $table) {
             $table->foreign('county')->references('id')->on('counties')->onDelete('cascade');
-            $table->foreign('sub_county')->references('id')->on('sub_counties')->onDelete('cascade');
+            $table->foreign('sub_county_id')->references('id')->on('sub_counties')->onDelete('cascade');
         });
     }
 
