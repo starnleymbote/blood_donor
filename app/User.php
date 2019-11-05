@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     public function appointment()
     {
-        return $this->hasMany('App\Appointment');
+        return $this->belongsTo('App\Appointment');
     }
 
     public function donor_details()

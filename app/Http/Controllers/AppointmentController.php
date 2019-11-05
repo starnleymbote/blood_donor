@@ -7,6 +7,7 @@ use App\Appointment;
 use App\Counties;
 use App\SubCounties;
 use App\DonationCenter;
+use App\DonorDetails;
 use Illuminate\Http\Request;
 use Session;
 
@@ -19,6 +20,11 @@ class AppointmentController extends Controller
      */
     public function index()
     {
+        $appointments = Appointment::with(['donor.donation_center'])->get();
+
+        return $appointments;
+
+        return view('appointments')->with('appointments',$appointments);
     }
 
     /**

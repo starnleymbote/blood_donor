@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    public function user()
+    public function donor()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\DonorDetails');
     }
 
     public function donation_center()

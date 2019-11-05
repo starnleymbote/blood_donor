@@ -20,4 +20,9 @@ class DonorDetails extends Model
     {
         return $this->belongsTo('App\DonationCenter');
     }
+
+    public function appointment()
+    {
+        return $this->hasOne('App\Appointment');
+    }
 }

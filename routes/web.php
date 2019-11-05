@@ -31,6 +31,7 @@ Route::get('/user_profile/{donor_id}','UserController@profile');
 //Appointments Routes
 Route::get('/appointments','AppointmentController@create');
 Route::post('/store','AppointmentController@store');
+Route::get('/listappointments','AppointmentController@index');
 
 //complete registration routes
 Route::POST('/complete_registration','DonorDetailsController@store');
@@ -48,3 +49,5 @@ Route::get('/add_county','CountiesController@create');
 Route::post('/store_county','CountiesController@store');
 Route::get('/add_sub_county','SubCountiesController@create');
 Route::post('/store_sub_county','SubCountiesController@store');
+
+
