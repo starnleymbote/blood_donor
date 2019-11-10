@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/allusers', 'UserController@index');
 Route::get('/donor_details','DonorDetailsController@index');
 Route::get('/user_profile/{donor_id}','UserController@profile');
+Route::get('/user_index','DonorDetailsController@index');
 
 //Appointments Routes
 Route::get('/appointments','AppointmentController@create');

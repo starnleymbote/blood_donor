@@ -12,7 +12,34 @@ class BloodTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(BloodType::class,10)->create();
-        //factory(BloodTypeAmount::class,10);
+        
+        //factory(BloodType::class,10)->create();
+        BloodType::create([
+            'name' => 'A+'
+        ]);
+
+        BloodType::create([
+            'name' => 'A-'
+        ]);
+
+        BloodType::create([
+            'name' => 'B+'
+        ]);
+
+        BloodType::create([
+            'name' => 'B-'
+        ]);
+
+        BloodType::create([
+            'name' => 'AB'
+        ]);
+
+        BloodType::create([
+            'name' => 'O+'
+        ]);
+
+        BloodType::create([
+            'name' => 'O-'
+        ]);
     }
 }
