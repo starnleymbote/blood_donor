@@ -32,6 +32,7 @@ Route::get('/user_profile/{donor_id}','UserController@profile');
 Route::get('/appointments','AppointmentController@create');
 Route::post('/store','AppointmentController@store');
 Route::get('/listappointments','AppointmentController@index');
+Route::get('/markasread/{appointment_id}','AppointmentController@markasread');
 
 //complete registration routes
 Route::POST('/complete_registration','DonorDetailsController@store');

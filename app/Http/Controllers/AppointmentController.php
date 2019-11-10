@@ -111,4 +111,23 @@ class AppointmentController extends Controller
     {
         //
     }
+
+    public function markasread($appointment_id)
+    {
+        $markasread = Appointment::find($appointment_id);
+
+        //update the read_status values to note its read
+        $markasread ->read_status = 1;
+
+        $markasread ->save();
+
+        return redirect()->back();
+    }
+
+    public function ok()
+    {
+        $markasread = Appointment::find(1);
+
+        return $markasread;
+    }
 }

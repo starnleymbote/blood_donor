@@ -25,16 +25,20 @@
 
                 <tbody>
                     @forelse ($appointments as $appointment)
-        
+
+                    @if ($appointment ->read_status == 0)
+
                         <tr>
                             <td>{{$appointment ->donor ->donation_center ->name}}</td>
                             <td>{{$appointment ->donor ->user ->name}}</td>
                             <td>{{$appointment ->purpose}}</td>
                             <td>{{$appointment ->appointment}}</td>
-                            <td>Reply</td>
-                            <td>Mark As Read</td>
+                            <td><a href="/markasread/{{$appointment ->id}}"><i class="fa fa-link"></i> <span>Reply</span></a></td>
+                            <td><a href="/markasread/{{$appointment ->id}}"><i class="fa fa-link"></i> <span>Mark as Read</span></a></td>
                         </tr>
-                        
+                                    
+                    @endif
+            
                     @empty
                         <h2>No Appointments Today</h2>
                     @endforelse
