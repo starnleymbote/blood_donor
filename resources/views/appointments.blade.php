@@ -32,7 +32,7 @@
                 <tbody>
                     @forelse ($appointments as $appointment)
 
-                    @if ($appointment ->read_status == 1)
+                    @if ($appointment ->read_status == 0)
 
                         <tr>
                             <td>{{$appointment ->donor ->donation_center ->name}}</td>
