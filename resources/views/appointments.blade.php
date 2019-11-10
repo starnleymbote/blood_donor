@@ -35,7 +35,7 @@
                     @if ($appointment ->read_status == 0)
 
                         <tr>
-                            <td>{{$appointment ->donor ->donation_center ->name}}</td>
+                            <td>{{$appointment ->donation_center ->name}}</td>
                             <td>{{$appointment ->donor ->user ->name}}</td>
                             <td>{{$appointment ->purpose}}</td>
                             <td>{{$appointment ->appointment}}</td>

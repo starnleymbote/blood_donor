@@ -9,6 +9,7 @@ use App\Counties;
 use App\SubCounties;
 use App\BloodType;
 use App\DonationCenter;
+use App\Classes\Util;
 use Illuminate\Http\Request;
 
 class DonorDetailsController extends Controller
@@ -93,7 +94,7 @@ class DonorDetailsController extends Controller
         $details->save();
 
         $util = new Util;
-        $result= $util ->sendSms(254705822035,"Thank you for completing the form");
+        $result= $util ->sendSms(+254705822035,"Thank you for completing the form");
 
         return redirect('/');
         

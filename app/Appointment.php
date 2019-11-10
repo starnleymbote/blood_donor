@@ -13,7 +13,7 @@ class Appointment extends Model
 
     public function donation_center()
     {
-        return $this->belongsTo('App\DonationCenter');
+        return $this->belongsTo('App\DonationCenter', 'center_id', 'id');
     }
 
     public function user()

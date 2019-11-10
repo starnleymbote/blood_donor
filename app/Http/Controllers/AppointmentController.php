@@ -22,8 +22,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::with(['donor.donation_center','donor.user'])->get();
-       
+        $appointments = Appointment::with(['donor.donation_center','donor.user','donation_center'])->get();
+        
         return view('appointments')->with('appointments',$appointments);
     }
 
@@ -61,7 +61,8 @@ class AppointmentController extends Controller
         $appointment ->purpose  = $request->input('purpose');
         $appointment ->center_id = $request->input('center');
 
-        $appointment ->save();
+        return $appointment;
+        //$appointment ->save();
 
         Session::flash('success', 'Appointment sent succesfully. Wait for a response via your phone');
         return redirect()->back();

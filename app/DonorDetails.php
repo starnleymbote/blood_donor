@@ -18,7 +18,7 @@ class DonorDetails extends Model
 
     public function donation_center()
     {
-        return $this->belongsTo('App\DonationCenter');
+        return $this->belongsTo('App\Appointment');
     }
 
     public function appointment()
