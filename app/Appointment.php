@@ -15,5 +15,11 @@ class Appointment extends Model
     {
         return $this->belongsTo('App\DonationCenter');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     
 }

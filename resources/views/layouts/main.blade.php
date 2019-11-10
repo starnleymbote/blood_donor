@@ -115,7 +115,7 @@
 
                                <li class="list-group-item">
             
-                                    <a href="">Check Appointments</a>
+                                    <a href="/listappointments">Check Appointments</a>
                
                                </li>
 
