@@ -41,6 +41,10 @@
                 <br/><br/>
 
             <li class="list-group-item">
+                <b> Phone : </b> <b style="color: blue"> 0{{$profile ->donor_details ->phone}} </b>
+            </li>
+
+            <li class="list-group-item">
                 <b> Email Address : </b> <b style="color: blue"> {{$profile ->email}} </b>
             </li>
 
