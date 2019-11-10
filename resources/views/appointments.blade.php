@@ -6,6 +6,12 @@
 
     <div class="col-sm-12">
 
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alertdialog">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+
             <div class="card" style="text-align: center; width: 100%; background-color: tomato;">
                     <div class="card-header" >
                        <strong>Centers List</strong>
@@ -26,14 +32,14 @@
                 <tbody>
                     @forelse ($appointments as $appointment)
 
-                    @if ($appointment ->read_status == 0)
+                    @if ($appointment ->read_status == 1)
 
                         <tr>
                             <td>{{$appointment ->donor ->donation_center ->name}}</td>
                             <td>{{$appointment ->donor ->user ->name}}</td>
                             <td>{{$appointment ->purpose}}</td>
                             <td>{{$appointment ->appointment}}</td>
-                            <td><a href="/markasread/{{$appointment ->id}}"><i class="fa fa-link"></i> <span>Reply</span></a></td>
+                            <td><a href="/reply/{{$appointment ->id}}"><i class="fa fa-link"></i> <span>Reply</span></a></td>
                             <td><a href="/markasread/{{$appointment ->id}}"><i class="fa fa-link"></i> <span>Mark as Read</span></a></td>
                         </tr>
                                     

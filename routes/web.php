@@ -33,6 +33,7 @@ Route::get('/appointments','AppointmentController@create');
 Route::post('/store','AppointmentController@store');
 Route::get('/listappointments','AppointmentController@index');
 Route::get('/markasread/{appointment_id}','AppointmentController@markasread');
+Route::get('/reply/{appointment_id}','AppointmentController@reply');
 
 //complete registration routes
 Route::POST('/complete_registration','DonorDetailsController@store');

@@ -10,6 +10,7 @@ use App\User;
 use App\DonationCenter;
 use App\DonorDetails;
 use Illuminate\Http\Request;
+use App\Classes\Util;
 use Session;
 
 class AppointmentController extends Controller
@@ -117,17 +118,33 @@ class AppointmentController extends Controller
         $markasread = Appointment::find($appointment_id);
 
         //update the read_status values to note its read
-        $markasread ->read_status = 1;
+        $markasread ->read_status = 0;
 
         $markasread ->save();
 
         return redirect()->back();
     }
 
-    public function ok()
+    public function reply($appointment_id)
     {
-        $markasread = Appointment::find(1);
+        $sendSms = new Util;
 
-        return $markasread;
+        $get_donor_id = Appointment::select('*')->whereId($appointment_id)->get();
+
+        foreach($get_donor_id as $donor_id)
+        {
+           $get_phone_number = DonorDetails::select('phone')->whereId($donor_id ->id)->get();
+        }
+
+        foreach($get_phone_number as $phone_number)
+        {
+            $phone_number->phone;
+
+            $smsnumber = "+254".$phone_number->phone;
+            //$sendSms ->sendSms($smsnumber,"Hello dear Kipkorir Nixon you have successfully been registered to Artisans.Download the Artisan app and login.Your email is nixswinner@gmail.com and your default password is password.");
+        }
+
+        Session::flash('success', 'Reply sent succesfully');
+        return redirect()->back();
     }
 }
