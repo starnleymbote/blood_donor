@@ -38,6 +38,9 @@
                                 @enderror
                             </div>
                         </div>
+{{-- 
+                        <input id="role_id" type="number" class="" name="role_id" value="4" hidden> --}}
+                        {!! Form::hidden('role_id', '2', ['class'=>'form-control']) !!}
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
