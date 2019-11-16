@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\BloodBank;
 use App\DonationCenter;
+use App\DonorDetails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BloodBankController extends Controller
 {
@@ -38,6 +40,15 @@ class BloodBankController extends Controller
         ->with('Opos',$Opos)
         ->with('Oneg',$Oneg)
         ->with('get_name',$get_name);
+    }
+
+    public function user_index()
+    {
+       $donor_details = DonorDetails::find(Auth::user()->id);
+
+        $get_blood_level = BloodBank::where('center_id',$donor_details ->donation_center_id)->where('blood_type_id',$donor_details ->blood_group_id)->sum('blood_amount');
+
+        return view('user_index')->with('get_blood_level',$get_blood_level);
     }
 
     /**
