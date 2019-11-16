@@ -53,4 +53,8 @@ Route::post('/store_county','CountiesController@store');
 Route::get('/add_sub_county','SubCountiesController@create');
 Route::post('/store_sub_county','SubCountiesController@store');
 
+//new admin route
+Route::get('/new_admin', 'UserController@new_admin');
+Route::POST('/reg_admin', 'UserController@storenewadmin');
+
 

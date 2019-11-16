@@ -109,4 +109,33 @@ class UserController extends Controller
     {
         //
     }
+
+    public function new_admin()
+    {
+        //return the view for addding the new admin
+        return view('new_admin');
+    }
+
+    public function storenewadmin(Request $request)
+    {
+        $this ->validate($request, [
+            'names' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'phone' => ['required', 'unique:users', 'min:10', 'max:13'],
+            // 'profile' => 'mimes: jpg,jpeg,png' | 'required',
+            
+        ]);
+            
+
+        $new_admin = new User;
+
+        $new_admin ->name = $request ->input('names');
+        $new_admin ->email = $request ->input('email');
+        $new_admin ->password = bcrypt($request ->input('password'));
+        $new_admin ->role_id = $request ->input('role_id');
+
+        $new_admin ->save();
+        return redirect()->back();
+
+    }
 }
