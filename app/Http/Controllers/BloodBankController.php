@@ -44,11 +44,21 @@ class BloodBankController extends Controller
 
     public function user_index()
     {
-       $donor_details = DonorDetails::find(Auth::user()->id);
+       $donor_details = DonorDetails::where('user_id',Auth::User()->id)->get();
 
-        $get_blood_level = BloodBank::where('center_id',$donor_details ->donation_center_id)->where('blood_type_id',$donor_details ->blood_group_id)->sum('blood_amount');
+       //return $donor_details;
+       foreach($donor_details as $details)
+       {
+        
+        $get_blood_level = BloodBank::where('center_id',$details ->donation_center_id)->where('blood_type_id',$details ->blood_group_id)->sum('blood_amount');
+        $get_center_name = DonationCenter::select('name')->where('id', $details->donation_center_id)->get();
 
-        return view('user_index')->with('get_blood_level',$get_blood_level);
+       }
+
+
+        
+
+        return view('user_index')->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
     }
 
     /**

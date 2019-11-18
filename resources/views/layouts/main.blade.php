@@ -87,7 +87,7 @@
                                 @if (Auth::User()->role_id == 1)
                                 <li class="list-group-item">
 
-                                        <a href="/user_id">Home</a>
+                                        <a href="/index">Home</a>
 
                                     </li>
 
