@@ -42,7 +42,7 @@ Route::POST('/complete_registration','DonorDetailsController@store');
 //centers list
 Route::get('/center_list','DonationCentreController@index')->name('centers');
 Route::get('/newcenter','DonationCentreController@create'); 
-Route::post('storecenter', 'DonationCentreController@store');
+Route::post('/storecenter', 'DonationCentreController@store');
 
 //bloodbank routes
 Route::get('bank_details/{center_id}','BloodBankController@index');
