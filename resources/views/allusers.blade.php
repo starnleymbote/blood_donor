@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    
+
     <table class="table table-striped" style="width: 98%">
         <thead class="thead thead-dark">
 
