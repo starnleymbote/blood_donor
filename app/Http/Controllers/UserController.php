@@ -21,7 +21,7 @@ class UserController extends Controller
     {
  
         $users = User::with(['donor_details.donation_center','donor_details.blood_group'])->get();
-
+        //return DonorDetails::with(['donation_center'])->get();
         return view('allusers')->with('users',$users);
     }
 
