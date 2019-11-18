@@ -82,87 +82,96 @@
 
                 <div class="col-md-4" style="padding-left: 5%">
 
-                    <li class="list-group-item">
-            
-                        <a href="/user_id">Home</a>
-        
-                    </li>
-
                         <ul class="list-group">
 
+                                @if (Auth::User()->role_id == 1)
                                 <li class="list-group-item">
-            
-                                    <a href="/donor_details">Complete Registration</a>
+
+                                        <a href="/user_id">Home</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
                     
-                                </li>
+                                        <a href="/donor_details">Complete Registration</a>
                             
-                            <li class="list-group-item">
-            
-                            <a href="/user_profile/{{Auth::user()->id}}">User Profile</a>
-            
-                            </li>
-            
-                            <li class="list-group-item">
-            
-                                <a href="/appointments">Make An Appointment</a>
-            
-                            </li>
-            
-                            <li class="list-group-item">
-            
-                                 <a href="">Check Records</a>
-            
-                            </li>
+                                    </li>
+                                    
+                                    <li class="list-group-item">
+                    
+                                    <a href="/user_profile/{{Auth::user()->id}}">User Profile</a>
+                    
+                                    </li>
+                    
+                                    <li class="list-group-item">
+                    
+                                        <a href="/appointments">Make An Appointment</a>
+                    
+                                    </li>
+                    
+                                    <li class="list-group-item">
+                    
+                                        <a href="">Check Records</a>
+                    
+                                    </li>
+                                    
+                                        
+                            @endif
 
                             {{-- ADMINS PANEL --}}
-                            <li class="list-group-item">
-            
-                                    <a href="/allusers">List All Donors</a>
-               
-                               </li>
+                            @if (Auth::User()->role_id == 2)
+                                
+                                    
+                                    <li class="list-group-item">
+                    
+                                            <a href="/allusers">List All Donors</a>
+                    
+                                    </li>
 
-                               <li class="list-group-item">
-            
-                                    <a href="/listappointments">Check Appointments</a>
-               
-                               </li>
+                                    <li class="list-group-item">
+                    
+                                            <a href="/listappointments">Check Appointments</a>
+                    
+                                    </li>
 
-                               <li class="list-group-item">
-            
-                                <a href="/newcenter">Add Donation Center</a>
-           
-                              </li>
+                                    <li class="list-group-item">
+                    
+                                        <a href="/newcenter">Add Donation Center</a>
+                
+                                    </li>
 
-                               <li class="list-group-item">
-            
-                                    <a href="/center_list">List Donation Center</a>
-               
-                               </li>
+                                    <li class="list-group-item">
+                    
+                                            <a href="/center_list">List Donation Center</a>
+                    
+                                    </li>
 
-                               <li class="list-group-item">
-            
-                                    <a href="/add_county">Add a County</a>
-               
-                               </li>
+                                    <li class="list-group-item">
+                    
+                                            <a href="/add_county">Add a County</a>
+                    
+                                    </li>
 
-                               <li class="list-group-item">
-            
-                                <a href="/add_sub_county">Add A Sub County</a>
-           
-                                </li>
+                                    <li class="list-group-item">
+                    
+                                        <a href="/add_sub_county">Add A Sub County</a>
+                
+                                        </li>
 
 
-                               <li class="list-group-item">
-            
-                                    <a href="">Blood Level Per County</a>
-               
-                               </li>
+                                    <li class="list-group-item">
+                    
+                                            <a href="">Blood Level Per County</a>
+                    
+                                    </li>
 
-                               <li class="list-group-item">
-            
-                                    <a href="">Add New Admin</a>
-               
-                               </li>
+                                    <li class="list-group-item">
+                    
+                                            <a href="">Add New Admin</a>
+                    
+                                    </li>
+
+                               @endif
             
                         </ul>
 
