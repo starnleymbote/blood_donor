@@ -27,9 +27,9 @@ class UserController extends Controller
 
     public function profile($donor_id)
     {
-        $get_county_id = DonorDetails::select('sub_county','county')->whereId($donor_id)->get();
+        $get_county_id = DonorDetails::select('sub_county','county')->whereUserId($donor_id)->get();
         //get user blood_group from blood_type table
-        $donor_center = DonorDetails::with(['donation_center'])->whereId($donor_id)->get();
+        $donor_center = DonorDetails::with(['donation_center'])->whereUserId($donor_id)->get();
         //$get_county = Counties::
         foreach($get_county_id as $ids)
         {
