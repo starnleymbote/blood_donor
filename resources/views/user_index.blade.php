@@ -5,7 +5,10 @@
 
     <div class="col-sm-8 offset-sm-2">
 
-        This is your centers banks details:
+        <div class="card-header" style="text-align: center;">
+                This is your centers banks details:
+        </div>
+
             <div class="card border-info mb-12 offset-mb-2">
                     <div class="card-header" style="width: 100%; text-align: center;">
                         @forelse ($get_center_name as $center_name)
@@ -28,8 +31,7 @@
                             @else
                             <p style="color: red;"><strong>Your centers blood level is below minimum threshold. Kindly, save a life by making an effort to donate to your center or any center close to you.</strong></p>
                             @endif
-                        <p class="card-title" style="color: tomato;"> {{__('Helo')}} </p> 
-
+                        
                         <strong>Tip of the day: </strong> <p class="card-title" style="color: cyan;"> Fruits helps in Blood regeneration in your body. </p> 
             
                     </div>
