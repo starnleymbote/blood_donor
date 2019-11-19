@@ -167,7 +167,7 @@
 
                                     <li class="list-group-item">
                     
-                                            <a href="">Add New Admin</a>
+                                            <a href="/new_admin">Add New Admin</a>
                     
                                     </li>
 

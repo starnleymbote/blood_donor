@@ -50,7 +50,7 @@ class AppointmentController extends Controller
         $this ->validate($request, [ 
             'center' => 'bail|required', 
             'app_date' => 'required',
-            'purpose' => 'required|max:100',
+            'purpose' => 'required|max:500',
             
         ]);
 
@@ -61,8 +61,8 @@ class AppointmentController extends Controller
         $appointment ->purpose  = $request->input('purpose');
         $appointment ->center_id = $request->input('center');
 
-        return $appointment;
-        //$appointment ->save();
+        //return $appointment;
+        $appointment ->save();
 
         Session::flash('success', 'Appointment sent succesfully. Wait for a response via your phone');
         return redirect()->back();
