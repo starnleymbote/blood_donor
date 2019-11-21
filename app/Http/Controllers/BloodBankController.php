@@ -7,7 +7,9 @@ use App\DonationCenter;
 use App\DonorDetails;
 use App\BloodType;
 use Illuminate\Http\Request;
+use App\Classes\Util;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class BloodBankController extends Controller
 {
@@ -62,9 +64,46 @@ class BloodBankController extends Controller
        $average_level = BloodBank::with('centre','blood_type')->select('center_id','blood_type_id')->where('blood_amount' ,'>', 250)->where('blood_amount' ,'<', 400)->get();
 
         //return blood levels that are in between the critical range and the average range
-        $critical_level = BloodBank::with('centre')->select('center_id','blood_type_id')->where('blood_amount' ,'<', 231)->get();
+        $critical_level = BloodBank::with('centre','blood_type')->select('center_id','blood_type_id')->where('blood_amount' ,'<', 231)->get();
 
          return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level)->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
+    }
+
+
+    public function view_drive()
+    {
+        return view('blood_drive');
+    }
+
+    public function blood_drive(Request $request)
+    {
+        $this ->validate($request,[
+            'theme' => ['required','max:160','min: 10'],
+
+        ]);
+
+        $get_center_id = BloodBank::select('center_id')->where('blood_amount' ,'>', 250)->where('blood_amount' ,'<', 400)->get();
+        $ids = $get_center_id->pluck('center_id');
+
+        $get_phone = DonorDetails::select('phone')->wherein('donation_center_id',$ids)->get();
+
+        //pluck phone number
+        //$get_phone ->pluck('phone');
+        //send sms notification
+        $sms = new Util;
+        //return $get_phone = array(1,2,3,4);
+
+
+        foreach ($get_phone as $phone => $number)
+        {
+            //echo $number->center_id;
+            $sms = $util ->sendSms($number->phone,"We invite you for a blood drive on ". $request->inpu('date'). " at your donation center");
+        }
+
+        
+        //send blood donation request to all donor details of that center
+        Session::flash('success', 'Drive initiated succesfully');
+        return redirect()->back();
     }
 
     /**

@@ -57,4 +57,7 @@ Route::post('/store_sub_county','SubCountiesController@store');
 Route::get('/new_admin', 'UserController@new_admin');
 Route::POST('/reg_admin', 'UserController@storenewadmin');
 
+//blood drive request route
+Route::POST('/blood_drive','BloodBankController@blood_drive');
+Route::get('/drive_view','BloodBankController@view_drive');
 

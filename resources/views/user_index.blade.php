@@ -53,7 +53,7 @@
 
     <div class="col-sm-10 offset-sm-1">
 
-        @foreach ($critical_level as $critical)
+        @if (count($critical_level) > 0)
             
         <div class="card">
 
@@ -75,17 +75,23 @@
 
                     </thead>
                     <tbody>
-                      <tr>
-                        <th>{{$critical ->centre ->name}}</th>
-                        <td>{{$critical ->blood_type ->name}}</td>
-                        <td><a href="">Inter Center Blood Transfer</a></td>
-                      </tr>
-                      
+
+                        @foreach ($critical_level as $critical)
+                        
+                            <tr>
+                                <th>{{$critical ->centre ->name}}</th>
+                                <td>{{$critical ->blood_type ->name}}</td>
+                                <td><a href="">Inter Center Blood Transfer</a></td>
+                            </tr>
+
+                      @endforeach
+
                     </tbody>
                   </table>
-                @endforeach
 
-                @foreach ($average_level as $average)
+                @endif
+
+                @if (count($average_level) > 0)
             
                 <div class="card" style="margin-top: 13%;">
 
@@ -102,24 +108,29 @@
                       <tr>
                             <th scope="col">Center Name</th>
                             <th scope="col">Blood Type</th>
-                            <th></th>
+                            
                       </tr>
 
                     </thead>
                     <tbody>
+                            @foreach ($average_level as $average)
+                      <tr>
+                        <th>{{$average ->centre ->name}}</th>
+                        <td>{{$average ->blood_type ->name}}</td>
+                      </tr>
+
+                      @endforeach
 
                       <tr>
-                      <th>{{$average ->centre ->name}}</th>
-                        <td>{{$average ->blood_type ->name}}</td>
-                        <td><a href="">Initate A blood Drive</a></td>
-                        
-                        
+                            <td colspan="2" style="text-align: center;"><a href="/drive_view">Initate A blood Drive</a></td>
                       </tr>
                       
                     </tbody>
+                    
                   </table>
 
-                @endforeach
+                  @endif
+
                 
     
         </div>
