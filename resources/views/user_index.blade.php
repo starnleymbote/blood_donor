@@ -3,7 +3,7 @@
 @section('content')
 <div class="row container-fluid">
 
-    @if (Auth::User()->role_id == 1)
+    @if (Auth::User()->role_id == 2)
         
     
         <div class="col-sm-8 offset-sm-2">
@@ -48,7 +48,7 @@
 
     {{-- this is what the admin sees when he/she logs in to the system --}}
 
-    @if (Auth::User()->role_id == 2)
+    @if (Auth::User()->role_id == 1)
         
 
     <div class="col-sm-8 offset-sm-2">

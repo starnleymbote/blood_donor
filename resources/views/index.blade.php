@@ -54,11 +54,12 @@
 			
 			<div class="col-md-4 top-forms mt-md-3 mt-2 mb-md-0 mb-3">
 				<span class="mx-lg-4 mx-md-2  mx-1">
-					<a href="#" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
+						{{-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> --}}
+					<a href="{{ route('login') }}">
 						<i class="fas fa-lock" style="color:#bb0a1e"></i> Sign In</a>
 				</span>
 				<span>
-					<a href="#" data-toggle="modal" data-target="#exampleModal1" >
+					<a href="{{ route('register') }}">>
 						<i class="fas fa-user" style="color:#bb0a1e"></i> Register</a>
 				</span>
 			</div>
