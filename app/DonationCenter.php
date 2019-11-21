@@ -14,7 +14,7 @@ class DonationCenter extends Model
     
     public function bloodbank()
     {
-        return $this->belongsTo('App\BloodBank');
+        return $this->hasMany('App\BloodBank');
     }
 
     public function user()

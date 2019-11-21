@@ -8,13 +8,13 @@ class BloodBank extends Model
 {
     protected $guarded = [];
     
-    public function donation_center()
+    public function blood_type()
     {
-        return $this->hasMany('App\DonationCenter');
+        return $this->belongsTo('App\BloodType');
     }
 
     public function centre()
     {
-        return $this->belongsTo('App\DonationCentre');
+        return $this->belongsTo('App\DonationCenter','center_id','');
     }
 }

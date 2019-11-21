@@ -22,6 +22,6 @@ class BloodType extends Model
 
     public function blood_banks()
     {
-        return $this->hasMany('App\BloodBank');
+        return $this->hasMany('App\BloodBank','blood_type_id');
     }
 }

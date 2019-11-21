@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BloodBank;
 use App\DonationCenter;
 use App\DonorDetails;
+use App\BloodType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,27 +45,26 @@ class BloodBankController extends Controller
 
     public function user_index()
     {
-        return view('/user_index');
-    //    $donor_details = DonorDetails::where('user_id',Auth::User()->id)->get();
-
-    //    //return $donor_details;
-    //    foreach($donor_details as $details)
-    //    {
         
-    //     $get_blood_level = BloodBank::where('center_id',$details ->donation_center_id)->where('blood_type_id',$details ->blood_group_id)->sum('blood_amount');
-    //     $get_center_name = DonationCenter::select('name')->where('id', $details->donation_center_id)->get();
+       $donor_details = DonorDetails::where('user_id',Auth::User()->id)->get();
 
-    //    }
+       //return $donor_details;
+       foreach($donor_details as $details)
+       {
+        
+        $get_blood_level = BloodBank::where('center_id',$details ->donation_center_id)->where('blood_type_id',$details ->blood_group_id)->sum('blood_amount');
+        $get_center_name = DonationCenter::select('name')->where('id', $details->donation_center_id)->get();
+
+       }
        
-    //    $get_id = BloodBank::select('id')->get();
+       
+       //return blood levels that are in between the critical range and the average range
+       $average_level = BloodBank::with('centre','blood_type')->select('center_id','blood_type_id')->where('blood_amount' ,'>', 250)->where('blood_amount' ,'<', 400)->get();
 
-    //    foreach($get_id as $id)
-    //    {
-    //    return BloodBank::where('center_id',$id->id)->sum('blood_amount');
-    //    }
+        //return blood levels that are in between the critical range and the average range
+        $critical_level = BloodBank::with('centre')->select('center_id','blood_type_id')->where('blood_amount' ,'<', 231)->get();
 
-    //    return BloodBank::where('center_id',1)->sum('blood_amount');
-    //     return view('user_index')->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
+         return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level)->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
     }
 
     /**
