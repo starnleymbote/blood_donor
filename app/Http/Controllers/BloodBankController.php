@@ -59,10 +59,10 @@ class BloodBankController extends Controller
 
        foreach($get_id as $id)
        {
-       return BloodBank::where('center_id',$id->id)->sum('blood_amount');
+        BloodBank::where('center_id',$id->id)->sum('blood_amount');
        }
 
-       return BloodBank::where('center_id',1)->sum('blood_amount');
+       //return BloodBank::where('center_id',1)->sum('blood_amount');
         return view('user_index')->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
     }
 
