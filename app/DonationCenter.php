@@ -36,4 +36,9 @@ class DonationCenter extends Model
     {
         return $this->hasOne('App\Counties');
     }
+
+    public function records()
+    {
+        return $this->belongsTo('App\DonorRecords');
+    }
 }

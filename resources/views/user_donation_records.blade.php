@@ -6,12 +6,6 @@
 
     <div class="col-md-10">
 
-            @if (Session::has('success'))
-                <div class="alert alert-success" role="alertdialog">
-                    {{Session::get('success')}}
-                </div>
-            @endif
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -25,6 +19,12 @@
             <div class="card-header" style="text-align: center; background-color: tomato">Donor Donation Records</div>
 
             <div class="card-body">
+                    @if (Session::has('success'))
+                    <div class="alert alert-success" role="alertdialog">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+    
                 {!! Form::open(['action' => 'DonorRecordsController@donation_records','method' => 'POST']) !!}
                 {{-- <form method="POST" action="AppointmentController@store"> --}}
                     @csrf

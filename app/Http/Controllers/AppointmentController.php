@@ -22,8 +22,12 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::with(['donor.donation_center','donor.user','donation_center'])->get();
+        $appointments = Appointment::with(['donor.donation_center','donation_center.donor.user'])->get();
         
+        foreach ($appointments as $value) {
+            //return $value->donation_center;
+        }
+        //return $appointments;
         return view('appointments')->with('appointments',$appointments);
     }
 

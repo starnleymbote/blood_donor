@@ -36,7 +36,7 @@
 
                         <tr>
                             <td>{{$appointment ->donation_center ->name}}</td>
-                            <td>{{$appointment ->donor ->user ->name}}</td>
+                            <td>{{$appointment->donation_center ->donor->user ->name}}</td>
                             <td>{{$appointment ->purpose}}</td>
                             <td>{{$appointment ->appointment}}</td>
                             <td><a href="/reply/{{$appointment ->id}}"><i class="fa fa-link"></i> <span>Reply</span></a></td>

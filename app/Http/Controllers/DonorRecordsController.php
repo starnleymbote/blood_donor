@@ -31,7 +31,7 @@ class DonorRecordsController extends Controller
         
         $store = new DonorRecords;
 
-        $store ->center_name = $request ->input('donated_at');
+        $store ->center_id = $request ->input('donated_at');
         $store ->email = $request ->input('email');
         $store ->pints = $request ->input('pint');
 

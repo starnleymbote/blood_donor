@@ -10,6 +10,7 @@ use App\SubCounties;
 use App\BloodType;
 use App\DonationCenter;
 use App\Classes\Util;
+use App\DonorRecords;
 use Illuminate\Http\Request;
 
 class DonorDetailsController extends Controller
@@ -150,5 +151,13 @@ class DonorDetailsController extends Controller
     public function destroy(DonorDetails $donorDetails)
     {
         //
+    }
+
+    public function chech_records()
+    {
+        return DonorRecords::with('centers')->get();
+        $records = DonorRecords::select('email', 'center_name','pints','created_at')->get();
+        
+        return view('check_records');
     }
 }

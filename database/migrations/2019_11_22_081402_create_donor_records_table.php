@@ -16,11 +16,11 @@ class CreateDonorRecordsTable extends Migration
         Schema::create('donor_records', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email', 100);
-            $table->string('center_name', 100);
+            $table->unsignedbigInteger('center_id');
             $table->integer('pints')->unsigned()->nullable()->default(1);
 
             //foreign key
-            //$table->foreign('donor_details')->references('id')->on('counties')->onDelete('cascade');
+            $table->foreign('center_id')->references('id')->on('donation_centers')->onDelete('cascade');
             $table->timestamps();
         });
     }

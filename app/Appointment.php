@@ -8,7 +8,7 @@ class Appointment extends Model
 {
     public function donor()
     {
-        return $this->belongsTo('App\DonorDetails');
+        return $this->belongsTo('App\DonorDetails','donor_id');
     }
 
     public function donation_center()

@@ -25,4 +25,9 @@ class DonorDetails extends Model
     {
         return $this->hasOne('App\Appointment');
     }
+
+    public function donor()
+    {
+        return $this->hasMany('App\DonorDetails');
+    }
 }

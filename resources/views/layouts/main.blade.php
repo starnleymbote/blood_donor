@@ -111,7 +111,7 @@
                     
                                     <li class="list-group-item">
                     
-                                        <a href="">Check Records</a>
+                                        <a href="/chech_records">Check Records</a>
                     
                                     </li>
                                     
@@ -158,12 +158,12 @@
                 
                                         </li>
 
-
+{{-- 
                                     <li class="list-group-item">
                     
                                             <a href="">Blood Level Per County</a>
                     
-                                    </li>
+                                    </li> --}}
 
                                     <li class="list-group-item">
                     
