@@ -60,4 +60,5 @@ Route::POST('/reg_admin', 'UserController@storenewadmin');
 //blood drive request route
 Route::POST('/blood_drive','BloodBankController@blood_drive');
 Route::get('/drive_view','BloodBankController@view_drive');
-
+Route::get('/blood_transfer_view/{center_id}','BloodBankController@transferview');
+Route::POST('/post_transfer','BloodBankController@request_transfer');

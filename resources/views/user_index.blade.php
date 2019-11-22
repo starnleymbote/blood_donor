@@ -75,13 +75,13 @@
 
                     </thead>
                     <tbody>
-
+                        
                         @foreach ($critical_level as $critical)
                         
                             <tr>
                                 <th>{{$critical ->centre ->name}}</th>
                                 <td>{{$critical ->blood_type ->name}}</td>
-                                <td><a href="">Inter Center Blood Transfer</a></td>
+                                <td><a href="/blood_transfer_view/{{$critical ->centre ->id}}">Inter Center Blood Transfer</a></td>
                             </tr>
 
                       @endforeach

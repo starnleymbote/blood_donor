@@ -97,11 +97,13 @@ class BloodBankController extends Controller
         foreach ($get_phone as $phone => $number)
         {
             //echo $number->center_id;
+
+
+            //send blood donation request to all donor details of that center
             $sms = $util ->sendSms($number->phone,"We invite you for a blood drive on ". $request->inpu('date'). " at your donation center");
         }
 
         
-        //send blood donation request to all donor details of that center
         Session::flash('success', 'Drive initiated succesfully');
         return redirect()->back();
     }
@@ -170,5 +172,25 @@ class BloodBankController extends Controller
     public function destroy(BloodBank $bloodBank)
     {
         //
+    }
+
+    public function transferview($center_id)
+    {
+        $other_centers = DonationCenter::select('id', 'name')->where('id', '!=', $center_id)->get();
+        $get_donation_center = DonationCenter::select('id', 'name')->whereId($center_id)->get();
+        
+        return view('blood_transfer')->with('other_centers', $other_centers)->with('get_donation_center', $get_donation_center);
+    }
+
+    public function request_transfer(Request $request)
+    {
+        $this->validate($request,[
+            'center_requesting_from' => ['required'],
+            'amount' => ['required']
+        ]);
+
+        Session::flash('success', 'Request sent succesfully. Await response');
+        return redirect()->back(); 
+
     }
 }

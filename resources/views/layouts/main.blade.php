@@ -119,7 +119,7 @@
                             @endif
 
                             {{-- ADMINS PANEL --}}
-                            @if (Auth::User()->role_id == 2)
+                            @if (Auth::User()->role_id == 1)
                                 
                                     
                                     <li class="list-group-item">
