@@ -62,3 +62,6 @@ Route::POST('/blood_drive','BloodBankController@blood_drive');
 Route::get('/drive_view','BloodBankController@view_drive');
 Route::get('/blood_transfer_view/{center_id}','BloodBankController@transferview');
 Route::POST('/post_transfer','BloodBankController@request_transfer');
+
+Route::get('/donation_record', 'DonorDetailsController@returndonationdetails');
+Route::POST('/post_donation_record', 'DonorDetailsController@donation_records');

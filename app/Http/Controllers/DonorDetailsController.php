@@ -94,10 +94,21 @@ class DonorDetailsController extends Controller
         $details->save();
 
         $util = new Util;
-        //$result= $util ->sendSms(+254705822035,"Thank you for completing the form");
+        $result= $util ->sendSms(+254705822035,"Thank you for completing the form");
 
         return redirect('/');
         
+    }
+
+    public function returndonationdetails()
+    {
+        $donation_center = DonationCenter::select('id', 'name')->get();
+        return view('user_donation_records')->with('donation_center', $donation_center);
+    }
+
+    public function donation_records(Request $request)
+    {
+        return $request;
     }
 
     /**
