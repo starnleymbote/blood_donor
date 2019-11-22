@@ -25,7 +25,7 @@
             <div class="card-header" style="text-align: center; background-color: tomato">Donor Donation Records</div>
 
             <div class="card-body">
-                {!! Form::open(['action' => 'DonorDetailsController@donation_records','method' => 'POST']) !!}
+                {!! Form::open(['action' => 'DonorRecordsController@donation_records','method' => 'POST']) !!}
                 {{-- <form method="POST" action="AppointmentController@store"> --}}
                     @csrf
 
@@ -61,6 +61,22 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                            <label for="pint" class="col-md-3 col-form-label text-md-right">{{ __('Donated Pints:') }}</label>
+
+                            <div class="col-md-6">
+                                
+                                <input id="pint" type="number" class="form-control @error('pint') is-invalid @enderror" name="pint" value="1" autofocus>
+
+                                @error('pint')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                    </div>
+
 
                     <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">

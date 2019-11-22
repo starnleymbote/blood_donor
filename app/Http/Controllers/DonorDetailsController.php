@@ -106,11 +106,7 @@ class DonorDetailsController extends Controller
         return view('user_donation_records')->with('donation_center', $donation_center);
     }
 
-    public function donation_records(Request $request)
-    {
-        return $request;
-    }
-
+    
     /**
      * Display the specified resource.
      *
