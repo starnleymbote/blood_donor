@@ -11,14 +11,13 @@
 |
 */
 
+Route::group(['middleware' => 'auth',Auth::check()], function () {
+
 Route::get('/', function () {
     return view('index');
 });
 
 Auth::routes();
-Route::group(['prefix' => 'admin'], function () {
-    
-});
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -66,3 +65,5 @@ Route::POST('/post_transfer','BloodBankController@request_transfer');
 Route::get('/donation_record', 'DonorDetailsController@returndonationdetails');
 Route::POST('/post_donation_record', 'DonorRecordsController@donation_records');
 Route::get('/chech_records', 'DonorDetailsController@chech_records');
+
+});
