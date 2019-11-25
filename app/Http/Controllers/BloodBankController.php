@@ -47,7 +47,7 @@ class BloodBankController extends Controller
 
     public function user_index()
     {
-        
+        $get_blood_level;
        $donor_details = DonorDetails::where('user_id',Auth::User()->id)->get();
 
        //return $donor_details;
