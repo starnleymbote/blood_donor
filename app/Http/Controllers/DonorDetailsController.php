@@ -155,8 +155,9 @@ class DonorDetailsController extends Controller
 
     public function chech_records()
     {
-        return DonorRecords::with('centers')->get();
-        $records = DonorRecords::select('email', 'center_name','pints','created_at')->get();
+        //return DonorRecords::with('centers')->get();
+        
+        return $records = DonorRecords::select('email', 'center_id','pints','created_at')->get();
         
         return view('check_records');
     }
