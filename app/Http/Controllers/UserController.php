@@ -113,7 +113,8 @@ class UserController extends Controller
     public function new_admin()
     {
         //return the view for addding the new admin
-        return view('new_admin');
+        $centers = DonationCenter::all();
+        return view('new_admin')->with('centers', $centers);
     }
 
     public function storenewadmin(Request $request)
