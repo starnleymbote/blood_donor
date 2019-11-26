@@ -27,7 +27,7 @@ Route::get('/allusers', 'UserController@index');
 Route::get('/donor_details','DonorDetailsController@index');
 Route::get('/user_profile/{donor_id}','UserController@profile');
 Route::get('/user_index','BloodBankController@user_index');
-Route::get('/admin_index','BloodBankController@admin_index');
+Route::get('/su_admin_index','BloodBankController@su_admin_index');
 
 //Appointments Routes
 Route::get('/appointments','AppointmentController@create');

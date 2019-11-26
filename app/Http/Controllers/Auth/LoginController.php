@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/user_index';
+    //protected $redirectTo = '/user_index';
 
     /**
      * Create a new controller instance.
@@ -43,4 +43,16 @@ class LoginController extends Controller
         
         return ['email' =>$request->{$this->username()},'password' => $request->password];
     }
+
+    protected function authenticated(Request $request, $user) {
+        
+        if ($user->role_id == 1) {
+            return redirect('/user_index');
+        } else if ($user->role_id == 2) {
+            return redirect('/admin_index');
+        } else {
+            return redirect('/su_admin_index');
+        }
+   }
+   
 }
