@@ -119,7 +119,7 @@
                             @endif
 
                             {{-- ADMINS PANEL --}}
-                            @if (Auth::User()->role_id == 2)
+                            @if (Auth::User()->role_id == 1)
                                 
                                     
                                     <li class="list-group-item">
@@ -172,6 +172,36 @@
                                     </li>
 
                                @endif
+
+                               {{-- @if (Auth::User()->role_id == 2) --}}
+
+
+                               <li class="list-group-item">
+                    
+                                    <a href="/new_admin">List All Donors</a>
+    
+                                </li>
+
+                               <li class="list-group-item">
+                    
+                                    <a href="/new_admin">Check Blood Level</a>
+        
+                                </li>
+
+                                <li class="list-group-item">
+                    
+                                    <a href="/new_admin">Check Appointments</a>
+        
+                                </li>
+
+                                <li class="list-group-item">
+                    
+                                    <a href="/new_admin">Inter Center Blood Transfer</a>
+        
+                                </li>
+
+                                   
+                               {{-- @endif --}}
             
                         </ul>
 

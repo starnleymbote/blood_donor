@@ -134,7 +134,9 @@ class UserController extends Controller
         $new_admin ->email = $request ->input('email');
         $new_admin ->password = bcrypt($request ->input('password'));
         $new_admin ->role_id = $request ->input('role_id');
+        $new_admin ->center_id = $request ->input('center_id');
 
+        //return $new_admin;
         $new_admin ->save();
         return redirect()->back();
 

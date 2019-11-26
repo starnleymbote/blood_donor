@@ -94,7 +94,7 @@
                                 @php
                                     $requesting_from = $centers->pluck('name','id')->toArray();
                                 @endphp
-                                {{ Form::select('center_requesting_from', $requesting_from, '', ['class'=>"form-control",'placeholder' => 'Request supply from']) }}
+                                {{ Form::select('center_id', $requesting_from, '', ['class'=>"form-control",'placeholder' => 'Request supply from']) }}
                                 {{-- <input id="center" type="email" class="form-control @error('email') is-invalid @enderror" name="center" value="{{ old('email') }}" required autocomplete="email" autofocus> --}}
     
                                 @error('center')
