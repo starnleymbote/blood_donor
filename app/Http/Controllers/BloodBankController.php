@@ -195,4 +195,29 @@ class BloodBankController extends Controller
         return redirect()->back(); 
 
     }
+
+    //get blood levels for a specific center
+    public function center_blood_level()
+    {
+        $Apos = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',1)->sum('blood_amount');
+        $Aneg = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',2)->sum('blood_amount');
+        $Bpos = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',3)->sum('blood_amount');
+        $Bneg = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',4)->sum('blood_amount');
+        $AB = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',5)->sum('blood_amount');
+        $Opos = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',6)->sum('blood_amount');
+        $Oneg = BloodBank::where('center_id',Auth::user()->center_id)->where('blood_type_id',7)->sum('blood_amount');
+
+        /**GETTING BLOOD TOTAL */
+        $total_blood_amount = BloodBank::where('center_id',Auth::user()->center_id)->sum('blood_amount');
+
+        $blood_level = BloodBank::select('blood_type_id', 'blood_amount')->whereCenterId(Auth::user()->center_id)->get();
+        return view('center_blood_level')->with('total_blood_amount', $total_blood_amount)
+                    ->with('Apos',$Apos)
+                    ->with('Aneg',$Aneg)
+                    ->with('Bpos',$Bpos)
+                    ->with('Bneg',$Bneg)
+                    ->with('AB',$AB)
+                    ->with('Opos',$Opos)
+                    ->with('Oneg',$Oneg);
+    }
 }

@@ -184,7 +184,7 @@
 
                                <li class="list-group-item">
                     
-                                    <a href="/new_admin">Check Blood Level</a>
+                                    <a href="/center_blood_level">Check Blood Level</a>
         
                                 </li>
 
