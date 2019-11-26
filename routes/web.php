@@ -74,6 +74,9 @@ Route::get('/center_donor_list', 'UserController@center_donors');
 /**Getting the blood levels of a particular center */
 Route::get('/center_blood_level', 'BloodBankController@center_blood_level');
 
+/**Getting appointments of that center */
+Route::get('/specific_center_appointment', 'AppointmentController@specific_center_appointments');
+
 
 
 //});

@@ -24,9 +24,9 @@ class AppointmentController extends Controller
     {
         $appointments = Appointment::with(['donor.donation_center','donation_center.donor.user'])->get();
         
-        foreach ($appointments as $value) {
-            //return $value->donation_center;
-        }
+        // foreach ($appointments as $value) {
+        //     //return $value->donation_center;
+        // }
         //return $appointments;
         return view('appointments')->with('appointments',$appointments);
     }
@@ -151,5 +151,12 @@ class AppointmentController extends Controller
 
         Session::flash('success', 'Reply sent succesfully');
         return redirect()->back();
+    }
+
+    public function specific_center_appointments()
+    {
+        $appointments = Appointment::with(['donor.donation_center','donation_center.donor.user'])->whereCenterId(Auth::User()->center_id)->get();
+
+        return view('appointment_per_center')->with('appointments', $appointments);
     }
 }

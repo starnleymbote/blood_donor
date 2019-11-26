@@ -190,7 +190,7 @@
 
                                 <li class="list-group-item">
                     
-                                    <a href="/new_admin">Check Appointments</a>
+                                    <a href="/specific_center_appointment">Check Appointments</a>
         
                                 </li>
 
