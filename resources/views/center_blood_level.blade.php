@@ -2,6 +2,18 @@
 
 @section('content')
 
+<div class="row">
+
+            <div class="col-sm-5 offset-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="location.href = '/top_up';" style="width: 80%; padding-left: 2%" ><b>Top Up Blood Bank</b></button>
+            </div>
+    
+            <div class="col-sm-5 offset-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="location.href = '/edit/';" style="width: 80%; padding-top: 2%" ><b>Dispense Blood</b></button>
+            </div>
+
+</div>
+
 <div class="row container-fluid">
 
     <div class="col-sm-10">

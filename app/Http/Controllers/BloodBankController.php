@@ -60,15 +60,19 @@ class BloodBankController extends Controller
 
        }
        
-       
-       //return blood levels that are in between the critical range and the average range
-       $average_level = BloodBank::with('centre','blood_type')->select('center_id','blood_type_id')->where('blood_amount' ,'>', 250)->where('blood_amount' ,'<', 400)->get();
-
-        //return blood levels that are in between the critical range and the average range
-        $critical_level = BloodBank::with('centre','blood_type')->select('center_id','blood_type_id')->where('blood_amount' ,'<', 231)->get();
-
         return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level);
         //  return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level)->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
+    }
+
+    public function admin_index()
+    {
+        //return blood levels that are in between the critical range and the average range
+       $average_level = BloodBank::with('centre','blood_type')->where('blood_amount' ,'>', 250)->where('blood_amount' ,'<', 400)->get();
+
+       //return blood levels that are in between the critical range and the average range
+       $critical_level = BloodBank::with('centre','blood_type')->where('blood_amount' ,'<', 231)->get();
+
+       return view('su_admin_index')->with('average_level',$average_level)->with('critical_level',$critical_level);
     }
 
 
@@ -219,5 +223,34 @@ class BloodBankController extends Controller
                     ->with('AB',$AB)
                     ->with('Opos',$Opos)
                     ->with('Oneg',$Oneg);
+    }
+
+    //this is where you top up a centers blood level
+    public function topup()
+    {
+
+        return view('top_up');
+    }
+
+    /**STORE THE UPDATED AMOUNT */
+    public function post_topup(Request $request)
+    {
+
+        $findApos = BloodBank::find();
+        $Apos = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',1)->get();
+        $Aneg = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',2)->get();
+        $Bpos = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',3)->get();
+        $Bneg = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',4)->get();
+        $AB = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',5)->get();
+        $Opos = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',6)->get();
+        $Oneg = BloodBank::select('blood_amount')->where('center_id',Auth::User()->center_id)->where('blood_type_id',7)->get();
+
+        DB::update('update blood_banks set blood_amount = ? where center_id = ? AND blood_type_id = ?', [300],[1],[1]);
+        foreach($Apos as $apos)
+        {
+            $apos->blood_amount;
+        }
+        // return $request->input('Apos');
+        // return $request;
     }
 }

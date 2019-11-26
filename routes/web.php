@@ -27,6 +27,7 @@ Route::get('/allusers', 'UserController@index');
 Route::get('/donor_details','DonorDetailsController@index');
 Route::get('/user_profile/{donor_id}','UserController@profile');
 Route::get('/user_index','BloodBankController@user_index');
+Route::get('/admin_index','BloodBankController@admin_index');
 
 //Appointments Routes
 Route::get('/appointments','AppointmentController@create');
@@ -77,6 +78,10 @@ Route::get('/center_blood_level', 'BloodBankController@center_blood_level');
 /**Getting appointments of that center */
 Route::get('/specific_center_appointment', 'AppointmentController@specific_center_appointments');
 
+/**TOP UP BLOOD UNITS */
+Route::get('/top_up', 'BloodBankController@topup');
+Route::post('/post_topup', 'BloodBankController@post_topup');
 
+/**DISPENSE BLOOD LEVELS */
 
 //});
