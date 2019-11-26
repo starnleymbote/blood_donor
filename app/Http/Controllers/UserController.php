@@ -9,6 +9,7 @@ use App\DonationCenter;
 use App\BloodType;
 use App\Counties;
 use App\SubCounties;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -141,4 +142,16 @@ class UserController extends Controller
         return redirect()->back();
 
     }
+
+    //list all donor of a particular center
+    public function center_donors()
+    {
+
+        $get_donor_details = DonorDetails::with(['user:id,name,email','Blood_group:id,name'])->where('donation_center_id',Auth::User()->center_id)->get();
+
+        return view('center_donors')->with('get_donor_details', $get_donor_details);
+
+
+    }
+
 }

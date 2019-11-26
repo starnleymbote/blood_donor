@@ -178,7 +178,7 @@
 
                                <li class="list-group-item">
                     
-                                    <a href="/new_admin">List All Donors</a>
+                                    <a href="/center_donor_list">List All Donors</a>
     
                                 </li>
 

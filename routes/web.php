@@ -66,4 +66,9 @@ Route::get('/donation_record', 'DonorDetailsController@returndonationdetails');
 Route::POST('/post_donation_record', 'DonorRecordsController@donation_records');
 Route::get('/chech_records', 'DonorDetailsController@chech_records');
 
+//center admins operational routes here
+
+//checking a list of all donors within that center
+Route::get('/center_donor_list', 'UserController@center_donors');
+
 //});
