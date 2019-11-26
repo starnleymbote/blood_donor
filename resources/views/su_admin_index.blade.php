@@ -5,9 +5,9 @@
 <div class="row container-fluid">
 
     {{-- this is what the admin sees when he/she logs in to the system --}}
-
+{{-- 
     @if (Auth::User()->role_id == 2)
-        
+         --}}
 
     <div class="col-sm-10 offset-sm-1">
 
@@ -92,8 +92,8 @@
                 
     
         </div>
-
+{{-- 
     @endif
-        
+         --}}
 </div>
 @endsection

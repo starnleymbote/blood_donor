@@ -64,7 +64,7 @@ class BloodBankController extends Controller
         //  return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level)->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
     }
 
-    public function admin_index()
+    public function su_admin_index()
     {
         //return blood levels that are in between the critical range and the average range
        $average_level = BloodBank::with('centre','blood_type')->where('blood_amount' ,'>', 250)->where('blood_amount' ,'<', 400)->get();
