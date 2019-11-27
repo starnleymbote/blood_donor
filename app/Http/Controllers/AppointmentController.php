@@ -68,7 +68,7 @@ class AppointmentController extends Controller
         //return $appointment;
         $appointment ->save();
 
-        $sendSms = new Util;
+        $util = new Util;
 
         $smsnumber = '+254704678645';
         $util->sendSms($smsnumber,"Your appointment has been recieved. THanks Blood Donor System");

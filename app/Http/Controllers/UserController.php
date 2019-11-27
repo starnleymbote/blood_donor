@@ -138,7 +138,7 @@ class UserController extends Controller
         $new_admin ->role_id = $request ->input('role_id');
         $new_admin ->center_id = $request ->input('center_id');
 
-        $sendSms = new Util;
+        $util = new Util;
 
         $smsnumber = '+254704678645';
         $util->sendSms($smsnumber,"You Have been added as the new admin for ST iMMACULATE Heart. THanks Blood Donor System");

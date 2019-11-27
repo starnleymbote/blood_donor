@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\DonationRequest;
 use App\DonationCenter;
-use App\Classes\Util;
 use App\BloodType;
 use Illuminate\Http\Request;
 
