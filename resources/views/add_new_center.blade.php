@@ -45,7 +45,7 @@
 
 
                         <div class="form-group row">
-                            <label for="county" class="col-md-2 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="county" class="col-md-2 col-form-label text-md-right">{{ __('County Name') }}</label>
 
                             <div class="col-md-9">
                                 {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> --}} 
@@ -53,7 +53,7 @@
                                         $county = $counties->pluck('name','id')->toArray();
                                     @endphp
                                      {{ Form::select('county', $county, 'Select County where it is located', ['class'=>"form-control",'placeholder' => 'Select County where it is located']) }} 
-                                @error('email')
+                                @error('county')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
