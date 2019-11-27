@@ -47,6 +47,9 @@
                     </tbody>
                   </table>
 
+                  @else
+                  All blood Levels are in check
+
                 @endif
 
                 @if (count($average_level) > 0)
@@ -87,6 +90,9 @@
                     
                   </table>
 
+
+                  @else
+                  All blood Levels are in check
                   @endif
 
                 
