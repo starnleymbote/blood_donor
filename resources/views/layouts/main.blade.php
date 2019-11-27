@@ -109,17 +109,17 @@
                     
                                     </li>
                     
-                                    <li class="list-group-item">
+                                    {{-- <li class="list-group-item">
                     
                                         <a href="/chech_records">Check Records</a>
                     
                                     </li>
-                                    
+                                     --}}
                                         
                             @endif
 
                             {{-- ADMINS PANEL --}}
-                            @if (Auth::User()->role_id == 1)
+                            @if (Auth::User()->role_id == 3)
                                 
                                     
                                     <li class="list-group-item">
@@ -173,7 +173,7 @@
 
                                @endif
 
-                               {{-- @if (Auth::User()->role_id == 2) --}}
+                               @if (Auth::User()->role_id == 2)
 
 
                                <li class="list-group-item">
@@ -201,7 +201,7 @@
                                 </li>
 
                                    
-                               {{-- @endif --}}
+                               @endif
             
                         </ul>
 
