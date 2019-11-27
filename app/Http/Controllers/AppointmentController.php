@@ -68,6 +68,11 @@ class AppointmentController extends Controller
         //return $appointment;
         $appointment ->save();
 
+        $sendSms = new Util;
+
+        $smsnumber = '+254704678645';
+        $util->sendSms($smsnumber,"Your appointment has been recieved. THanks Blood Donor System");
+
         Session::flash('success', 'Appointment sent succesfully. Wait for a response via your phone');
         return redirect()->back();
         
