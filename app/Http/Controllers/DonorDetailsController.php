@@ -59,8 +59,8 @@ class DonorDetailsController extends Controller
             'county' => 'required',
             'sub_county' => 'required',
             'center' => 'required',
-            'phone' => 'required',
-            'gender' => 'required',
+            'phone' => '',
+            'gender' => '',
             'blood_group' => 'required',
             'profile' => 'mimes: jpg,png,jpeg|required',
             
