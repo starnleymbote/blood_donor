@@ -47,10 +47,13 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user) {
         
         if ($user->role_id == 1) {
+            return $user;
             return redirect('/user_index');
         } else if ($user->role_id == 3) {
+            return $user;
             return redirect('/su_admin_index');
         } else {
+            return $user;
             return redirect('/center_blood_level');
         }
    }
