@@ -9,6 +9,7 @@ use App\DonationCenter;
 use App\BloodType;
 use App\Counties;
 use App\SubCounties;
+use App\Classes\Util;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller

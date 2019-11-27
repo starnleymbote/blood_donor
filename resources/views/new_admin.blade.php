@@ -88,13 +88,13 @@
                         {!! Form::hidden('role_id', '2', ['class'=>'form-control']) !!}
 
                         <div class="form-group row">
-                            <label for="center_label" class="col-md-3 col-form-label text-md-right">{{ __('Center Requesting from :') }}</label>
+                            <label for="center_label" class="col-md-3 col-form-label text-md-right">{{ __('Posting To:') }}</label>
     
                             <div class="col-md-8">
                                 @php
                                     $requesting_from = $centers->pluck('name','id')->toArray();
                                 @endphp
-                                {{ Form::select('center_id', $requesting_from, '', ['class'=>"form-control",'placeholder' => 'Request supply from']) }}
+                                {{ Form::select('center_id', $requesting_from, '', ['class'=>"form-control",'placeholder' => 'Center Name']) }}
                                 {{-- <input id="center" type="email" class="form-control @error('email') is-invalid @enderror" name="center" value="{{ old('email') }}" required autocomplete="email" autofocus> --}}
     
                                 @error('center')
