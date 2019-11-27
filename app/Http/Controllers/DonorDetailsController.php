@@ -95,9 +95,10 @@ class DonorDetailsController extends Controller
         $details->save();
 
         $util = new Util;
-        $result= $util ->sendSms(+254705822035,"Thank you for completing the form");
+        $smsnumber = '+254704678645';
+        $result= $util ->sendSms($smsnumber,"Thank you for completing the form");
 
-        return redirect('/');
+        return redirect('/user_index');
         
     }
 
