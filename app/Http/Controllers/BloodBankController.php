@@ -251,5 +251,6 @@ class BloodBankController extends Controller
         }
         // return $request->input('Apos');
         // return $request;
+        return redirect('/center_donor_list');
     }
 }
