@@ -146,7 +146,7 @@ class AppointmentController extends Controller
             $phone_number->phone;
 
             $smsnumber = "+254".$phone_number->phone;
-            //$sendSms ->sendSms($smsnumber,"Hello dear Kipkorir Nixon you have successfully been registered to Artisans.Download the Artisan app and login.Your email is nixswinner@gmail.com and your default password is password.");
+            $sendSms ->sendSms($smsnumber,"Hello dear donor, we will get into full contact with you soonest");
         }
 
         Session::flash('success', 'Reply sent succesfully');
@@ -159,4 +159,6 @@ class AppointmentController extends Controller
 
         return view('appointment_per_center')->with('appointments', $appointments);
     }
+
+    
 }

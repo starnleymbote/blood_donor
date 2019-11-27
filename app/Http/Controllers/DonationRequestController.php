@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DonationRequest;
+use App\DonationCenter;
+use App\BloodType;
 use Illuminate\Http\Request;
 
 class DonationRequestController extends Controller
@@ -24,7 +26,9 @@ class DonationRequestController extends Controller
      */
     public function create()
     {
-        //
+        $centre = DonationCenter::all();
+        $blood_type = BloodType::all();
+        return view('request_blood')->with('centre', $centre)->with('blood_type', $blood_type);
     }
 
     /**
@@ -35,7 +39,27 @@ class DonationRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        $this ->validate($request, [ 
+            'name' => 'bail|required', 
+            'phone' => ['required'],
+            'blood_group' => 'required',
+            'center_id' => 'required',
+            'purpose' => 'max:255'
+            
+        ]);
+
+        $donor_request = new DonationRequest;
+
+        $donor_request ->name = $request->input('name');
+        $donor_request ->phone= $request->input('phone');
+        $donor_request ->blood_group= $request->input('blood_group');
+        $donor_request ->center_id= $request->input('center_id');
+        $donor_request ->more_details= $request->input('purpose');
+
+        $donor_request->save();
+        return redirect('/');
+
     }
 
     /**

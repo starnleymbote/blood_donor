@@ -85,3 +85,6 @@ Route::post('/post_topup', 'BloodBankController@post_topup');
 /**DISPENSE BLOOD LEVELS */
 
 //});
+
+Route::get('/user_request', 'DonationRequestController@create');
+Route::POST('/post_req', 'DonationRequestController@store');

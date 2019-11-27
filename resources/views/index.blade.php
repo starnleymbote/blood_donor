@@ -83,13 +83,13 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.php">About Us</a>
+							<a class="nav-link" href="#">About Us</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="services.php">Services</a>
+							<a class="nav-link" href="#">Services</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="booking.php">Request Blood</a>
+							<a class="nav-link" href="/user_request">Request Blood</a>
 						</li>
 						
 						<li class="nav-item">
@@ -113,7 +113,7 @@
 								<div class="banner-info text-center">
 									<h2 style="color:aliceblue">Donate Blood </h2>
 									<h5 style="color:aliceblue">Be Smart With Smart Donor </h5>
-									<a href="booking.html">Request Blood </a>
+									<a href="/user_request">Request Blood </a>
 								</div>
 							</div>
 						</div>
@@ -124,7 +124,7 @@
 								<div class="banner-info text-center">
 									<h4 style="color:aliceblue">Register as a Donor</h4>
 									<h5 style="color:aliceblue">Join our Family</h5>
-									<a href="booking.html">Request Blood </a>
+									<a href="user_request">Request Blood </a>
 								</div>
 							</div>
 						</div>
