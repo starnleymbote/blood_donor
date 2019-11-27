@@ -24,6 +24,7 @@ class UserController extends Controller
  
         $users = User::with(['donor_details.donation_center','donor_details.blood_group'])->where('role_id', 1)->get();
         //return DonorDetails::with(['donation_center'])->get();
+        return $users;
         return view('allusers')->with('users',$users);
     }
 
