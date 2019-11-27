@@ -47,8 +47,7 @@ class BloodBankController extends Controller
 
     public function user_index()
     {
-        $get_blood_level = [10,20];
-        $get_center_name = "St Immah";
+
        $donor_details = DonorDetails::where('user_id',Auth::User()->id)->get();
 
        //return $donor_details;
@@ -60,8 +59,8 @@ class BloodBankController extends Controller
 
        }
        
-        return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level);
-        //  return view('user_index')->with('average_level',$average_level)->with('critical_level',$critical_level)->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
+       
+        return view('user_index')->with('get_blood_level',$get_blood_level)->with('get_center_name', $get_center_name);
     }
 
     public function su_admin_index()
