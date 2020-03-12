@@ -88,3 +88,5 @@ Route::post('/post_topup', 'BloodBankController@post_topup');
 
 Route::get('/user_request', 'DonationRequestController@create');
 Route::POST('/post_req', 'DonationRequestController@store');
+
+Route::get('/saythanks/{donorId}','UserController@thanks');

@@ -162,4 +162,11 @@ class UserController extends Controller
 
     }
 
+    public function thanks($donor_id)
+    {
+        $find_donor = User::find($donor_id);
+
+        return "Congratulations ".$finf_donor." for you support";
+    }
+
 }
