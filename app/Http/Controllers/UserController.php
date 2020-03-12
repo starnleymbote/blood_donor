@@ -22,8 +22,8 @@ class UserController extends Controller
     public function index()
     {
  
-        $users = User::with(['donor_details.donation_center','donor_details.blood_group'])->where('role_id', 1)->get();
-        //return DonorDetails::with(['donation_center'])->get();
+        //$users = User::with(['donor_details.donation_center','donor_details.blood_group'])->where('role_id', 1)->get();
+        $users = DonorDetails::with(['donation_center','user','blood_group'])->get();
         
         return view('allusers')->with('users',$users);
     }

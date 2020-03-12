@@ -53,7 +53,7 @@ class DonorDetailsController extends Controller
      */
     public function store(Request $request)
     {
-            $details = new DonorDetails;
+        $details = new DonorDetails;
         
         $this ->validate($request, [
             'county' => 'required',
