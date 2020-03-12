@@ -18,7 +18,9 @@
 
         </thead>
         <tbody>
-
+            @if (count($users) > 0)
+                
+            
                 @forelse ($users as $user)
                 
                     <tr>
@@ -33,6 +35,10 @@
                 @empty
                     
                 @endforelse
+
+            @else
+                INSERT USERS
+            @endif
                 
             
 
